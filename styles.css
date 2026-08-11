@@ -58,6 +58,10 @@ a { color: inherit; text-decoration: none; }
 .tile-table { top: 0; right: 10px; transform: rotate(7deg); }
 .tile-vent { right: 24px; bottom: 60px; transform: rotate(8deg); }
 .tile-monitor { left: 0; bottom: 20px; transform: rotate(-7deg); }
+.hero-build-note { position: absolute; z-index: 2; right: clamp(28px, 8vw, 120px); top: 190px; width: min(31vw, 390px); min-height: 285px; display: flex; flex-direction: column; justify-content: space-between; padding: 25px; border: 1px solid #76cbb455; background: linear-gradient(145deg, #173f43e8, #0b1b21ee); box-shadow: 18px 22px 0 #061014aa, 0 25px 55px #0007; transform: rotate(-5deg); }
+.hero-build-kicker { color: var(--coral); font-size: .58rem; font-weight: 850; letter-spacing: .15em; }
+.hero-build-note strong { color: var(--mint); font-size: clamp(1.7rem, 3.2vw, 3rem); line-height: .96; letter-spacing: -.07em; }
+.hero-build-note small { max-width: 270px; color: #9db6b0; font-size: .68rem; line-height: 1.65; }
 
 .section { max-width: var(--max); margin: 0 auto; padding: 130px clamp(22px, 5vw, 76px); }
 .split { display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: clamp(45px, 8vw, 120px); }
@@ -70,6 +74,10 @@ a { color: inherit; text-decoration: none; }
 .catalog-grid > div { min-height: 150px; display: flex; flex-direction: column; justify-content: space-between; padding: 12px; background: #0c2025; border: 1px solid #31575a; }
 .catalog-grid img { width: 100%; height: 112px; object-fit: contain; filter: drop-shadow(0 12px 8px #0008); }
 .catalog-grid span, .stage-grid small { color: var(--mint); font-size: .55rem; font-weight: 850; letter-spacing: .11em; }
+.catalog-placeholder { min-height: 300px; display: flex; flex-direction: column; justify-content: center; gap: 16px; padding: 22px 14px 42px; background: linear-gradient(145deg, #153a3d, #0b1d23); border: 1px solid #31575a; }
+.placeholder-mark { width: 46px; height: 46px; display: grid; place-items: center; border: 1px solid var(--coral); color: var(--coral); font-size: 1.8rem; }
+.catalog-placeholder strong, .stage-placeholder strong { color: #edf7ec; font-size: 1.35rem; line-height: 1; letter-spacing: -.05em; }
+.catalog-placeholder p { max-width: 340px; margin: 0; color: #8fa8a4; font-size: .75rem; line-height: 1.7; }
 .art-label, .media-caption { position: absolute; left: 30px; bottom: 30px; display: flex; align-items: center; gap: 8px; padding: 11px 14px; background: #081317ed; border: 1px solid #6ab7a255; color: #dcebe2; font-size: .65rem; font-weight: 800; letter-spacing: .08em; }
 .art-label span { width: 6px; height: 6px; border-radius: 50%; background: var(--coral); }
 .systems-section { padding-top: 20px; }
@@ -96,6 +104,9 @@ a { color: inherit; text-decoration: none; }
 .stage-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 10px; margin-top: 14px; }
 .stage-grid > div { min-height: 165px; display: flex; flex-direction: column; justify-content: space-between; padding: 12px; background: linear-gradient(145deg, #153a3d, #0b1d23); border: 1px solid #31575a; }
 .stage-grid img { width: 100%; height: 125px; object-fit: contain; filter: drop-shadow(0 12px 8px #0008); }
+.stage-placeholder { min-height: 375px; display: flex; flex-direction: column; justify-content: center; gap: 18px; padding: 30px; background: radial-gradient(circle at 76% 26%, #1d5b5c, transparent 26%), linear-gradient(145deg, #153a3d, #0b1d23); border: 1px solid #31575a; }
+.placeholder-grid { color: #70b8aa; font-size: 3.7rem; font-weight: 800; letter-spacing: -.1em; opacity: .75; }
+.stage-placeholder small { max-width: 340px; color: #8fa8a4; font-size: .72rem; line-height: 1.7; }
 .media-caption { left: auto; right: 28px; bottom: 28px; color: var(--mint); font-size: .56rem; }
 
 .dark { max-width: none; background: #0b1d23; border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
@@ -162,7 +173,7 @@ a { color: inherit; text-decoration: none; }
   .hero h1 { font-size: clamp(3.2rem, 15vw, 5.4rem); }
   .hero-lede { font-size: .92rem; }
   .hero-meta { flex-direction: column; gap: 12px; margin-top: 39px; }
-  .hero-assets { top: auto; right: 12px; bottom: 55px; width: 360px; height: 275px; transform: scale(.72) rotate(-5deg); transform-origin: right bottom; }
+  .hero-build-note { top: auto; right: 22px; bottom: 72px; width: min(83vw, 360px); min-height: 220px; transform: rotate(-3deg); }
   .hero-stamp { right: 20px; bottom: 28px; }
   .section { padding: 85px 22px; }
   .intro, .showcase { grid-template-columns: 1fr; gap: 56px; }
