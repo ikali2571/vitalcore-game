@@ -50,6 +50,32 @@ a { color: inherit; text-decoration: none; }
 .hero-stamp strong { color: var(--mint); font-size: 1.12rem; }
 .hero-stamp span { align-self: end; color: #819b96; font-size: .52rem; letter-spacing: .12em; text-transform: uppercase; }
 .hero-stamp i { grid-column: 1 / -1; height: 1px; margin: 6px 0; background: #ffffff1d; }
+.milestone-callout { display: grid; grid-template-columns: minmax(360px, .9fr) minmax(0, 1.1fr); gap: clamp(34px, 6vw, 84px); align-items: center; padding-top: 95px; padding-bottom: 95px; background: linear-gradient(135deg, #102a30, #0a181d); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+.milestone-callout > img { width: 100%; border: 1px solid #91f6d555; box-shadow: 20px 24px 0 #06101499, 0 28px 70px #0008; }
+.milestone-callout h2 { font-size: clamp(3rem, 6vw, 6.2rem); }
+.milestone-callout > div > p:not(.eyebrow) { max-width: 680px; color: #a8bdb7; font-size: .9rem; line-height: 1.8; }
+.milestone-callout .milestone-note { padding: 16px 18px; border-left: 3px solid var(--coral); background: #081317aa; color: #c3d1cd; }
+
+.milestone-page { min-height: 100vh; padding-top: 76px; }
+.milestone-hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(380px, .9fr); gap: clamp(38px, 6vw, 90px); align-items: center; max-width: var(--max); margin: 0 auto; padding: 95px clamp(22px, 5vw, 76px) 70px; }
+.milestone-hero h1 { margin: .15em 0; color: #f0f6ed; font-size: clamp(4rem, 8vw, 7.5rem); line-height: .9; letter-spacing: -.08em; }
+.milestone-hero h1 em { color: var(--mint); font-style: normal; }
+.milestone-hero > div > p:not(.eyebrow) { max-width: 700px; color: #a8bdb7; font-size: 1rem; line-height: 1.85; }
+.milestone-hero figure { margin: 0; overflow: hidden; border: 1px solid #91f6d555; background: #0d2025; box-shadow: 22px 25px 0 #06101499, 0 25px 65px #0007; }
+.milestone-hero figure img { width: 100%; }
+.milestone-hero figcaption { padding: 15px 18px; color: #8fa8a4; font-size: .67rem; }
+.milestone-facts { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; max-width: var(--max); margin: 0 auto; padding: 0 clamp(22px, 5vw, 76px) 70px; }
+.milestone-facts div { min-height: 145px; display: flex; flex-direction: column; justify-content: space-between; padding: 25px; border: 1px solid var(--line); background: #10282e; }
+.milestone-facts span { color: var(--coral); font-size: .58rem; font-weight: 900; letter-spacing: .14em; }
+.milestone-facts strong { color: #eef7ee; font-size: 1.25rem; }
+.milestone-details { display: grid; grid-template-columns: minmax(0, 1.25fr) minmax(300px, .75fr); gap: 24px; }
+.milestone-details article { padding: 30px; border: 1px solid var(--line); background: #10262b; }
+.milestone-details h3 { margin-top: 0; color: #eef7ee; font-size: 1.35rem; }
+.milestone-details p, .milestone-details li { color: #9db2ad; font-size: .82rem; line-height: 1.8; }
+.milestone-details ul { padding-left: 20px; }
+.milestone-video { max-width: var(--max); margin: 0 auto; padding: 0 clamp(22px, 5vw, 76px) 90px; }
+.milestone-video video { display: block; width: 100%; aspect-ratio: 16 / 9; border: 1px solid var(--line); background: #03090b; }
+.platform-disclaimer { margin-top: 20px; color: #718b87; font-size: .65rem; }
 .hero-visual-label { position: absolute; right: 8%; top: 130px; z-index: 4; max-width: 285px; padding: 16px 18px; border: 1px solid #91f6d566; background: #081317e8; box-shadow: 0 16px 40px #0008; }
 .hero-visual-label span { display: block; margin-bottom: 6px; color: var(--coral); font-size: .58rem; font-weight: 900; letter-spacing: .15em; }
 .hero-visual-label strong { display: block; color: #f2f8f2; font-size: .92rem; }
@@ -218,6 +244,8 @@ a { color: inherit; text-decoration: none; }
   .section-heading { grid-template-columns: 1fr; gap: 22px; }
   .feature-grid { grid-template-columns: repeat(2, 1fr); }
   .progress-layout { grid-template-columns: 1fr; }
+  .milestone-callout, .milestone-hero, .milestone-details { grid-template-columns: 1fr; }
+  .milestone-facts { grid-template-columns: 1fr; }
   .timeline { grid-template-columns: repeat(2, 1fr); }
   .media-layout { grid-template-columns: minmax(0, 1.25fr) minmax(280px, .75fr); }
   .cta { grid-template-columns: 75px 1fr; }
@@ -239,6 +267,12 @@ a { color: inherit; text-decoration: none; }
   .hero-visual-label { top: auto; right: 22px; bottom: 118px; max-width: calc(100% - 44px); }
   .hero-stamp { right: 20px; bottom: 28px; }
   .section { padding: 85px 22px; }
+  .milestone-callout { grid-template-columns: 1fr; }
+  .milestone-hero { grid-template-columns: 1fr; padding: 95px 22px 55px; }
+  .milestone-hero h1 { font-size: clamp(3.4rem, 16vw, 5rem); }
+  .milestone-facts { padding: 0 22px 55px; }
+  .milestone-details { grid-template-columns: 1fr; }
+  .milestone-video { padding: 0 22px 70px; }
   .intro, .showcase { grid-template-columns: 1fr; gap: 56px; }
   .catalog-panel, .asset-stage { transform: none; }
   .gameplay-figure, .gameplay-figure img, .stage-figure, .stage-figure img { min-height: 280px; }
