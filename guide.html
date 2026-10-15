@@ -1,0 +1,643 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<link rel="icon" href="assets/vitalcore-icon.png">
+<link rel="canonical" href="https://ikali2571.github.io/vitalcore-game/guide.html">
+<title>VitalCore Player Guide</title>
+<meta name="description" content="How to play VitalCore Hospital: build, staff and run your hospital, step by step.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@600;800&family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a field manual - sticky chapter rail on the left, one reading column, reference tables that scroll inside themselves. Dark night-shift first. */
+:root {
+  --bg: #0b1518;
+  --panel: #12222a;
+  --panel-2: #183039;
+  --line: #24414c;
+  --fg: #e4eef0;
+  --muted: #9bb3b9;
+  --accent: #3fd0d4;
+  --accent-ink: #062226;
+  --warn: #f0b44c;
+  --bad: #f06a5f;
+  --good: #63d38f;
+  --t1: #e5484d; --t2: #f08a3c; --t3: #e7c443; --t4: #52b86b; --t5: #4b8fe0;
+  --display: "Archivo", "Arial Narrow", Arial, sans-serif;
+  --body: "Atkinson Hyperlegible", "Segoe UI", Verdana, sans-serif;
+  --mono: "JetBrains Mono", Consolas, "Courier New", monospace;
+  color-scheme: dark;
+}
+@media (prefers-color-scheme: light) {
+  :root:not([data-theme="dark"]) {
+    --bg: #f3f7f7; --panel: #ffffff; --panel-2: #e7f0f1; --line: #c9dadd;
+    --fg: #10242a; --muted: #4c6670; --accent: #0b8a91; --accent-ink: #ffffff;
+    --warn: #a86a00; --bad: #c0362c; --good: #1d7f45;
+    color-scheme: light;
+  }
+}
+:root[data-theme="light"] {
+  --bg: #f3f7f7; --panel: #ffffff; --panel-2: #e7f0f1; --line: #c9dadd;
+  --fg: #10242a; --muted: #4c6670; --accent: #0b8a91; --accent-ink: #ffffff;
+  --warn: #a86a00; --bad: #c0362c; --good: #1d7f45;
+  color-scheme: light;
+}
+* { box-sizing: border-box; }
+body {
+  background: var(--bg); color: var(--fg);
+  font: 17px/1.6 var(--body);
+  padding-left: max(16px, env(safe-area-inset-left, 0px));
+  padding-right: max(16px, env(safe-area-inset-right, 0px));
+  padding-block: 0 64px;
+}
+a { color: var(--accent); }
+a:focus-visible, summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+.wrap { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 250px minmax(0, 1fr); gap: 48px; }
+header.top { max-width: 1180px; margin: 0 auto; padding-block: 40px 28px; border-bottom: 1px solid var(--line); margin-bottom: 32px; }
+.eyebrow { font: 700 12px/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); }
+h1 { font: 800 clamp(34px, 6vw, 58px)/1.02 var(--display); margin: 12px 0 14px; text-wrap: balance; letter-spacing: -.01em; }
+.lede { color: var(--muted); max-width: 64ch; font-size: 19px; margin: 0; }
+.meta { display: flex; flex-wrap: wrap; gap: 10px 22px; margin-top: 18px; font: 500 13px/1.4 var(--mono); color: var(--muted); }
+nav.rail { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 16px); align-self: start; max-height: calc(100vh - 32px); overflow-y: auto; padding-right: 8px; }
+nav.rail ol { list-style: none; margin: 0; padding: 0; counter-reset: ch; display: grid; gap: 2px; }
+nav.rail li { counter-increment: ch; }
+nav.rail a { display: grid; grid-template-columns: 28px 1fr; gap: 6px; padding: 6px 8px; border-radius: 6px; color: var(--muted); text-decoration: none; font-size: 15px; line-height: 1.3; }
+nav.rail a::before { content: counter(ch, decimal-leading-zero); font: 500 12px/1.6 var(--mono); color: var(--accent); }
+nav.rail a:hover { background: var(--panel); color: var(--fg); }
+main { min-width: 0; }
+section { padding-block: 8px 28px; border-bottom: 1px solid var(--line); margin-bottom: 28px; scroll-margin-top: 16px; }
+section:last-child { border-bottom: 0; }
+h2 { font: 800 30px/1.15 var(--display); margin: 0 0 12px; text-wrap: balance; }
+h3 { font: 600 20px/1.3 var(--display); margin: 28px 0 8px; text-wrap: balance; }
+p, ul, ol { max-width: 68ch; }
+li { margin-block: 4px; }
+kbd { font: 700 13px/1 var(--mono); padding: 3px 7px 4px; border-radius: 5px; background: var(--panel-2); border: 1px solid var(--line); border-bottom-width: 3px; color: var(--fg); white-space: nowrap; }
+.ui { font: 700 13px/1 var(--mono); letter-spacing: .04em; color: var(--accent); white-space: nowrap; }
+.table-scroll { overflow-x: auto; margin: 12px 0 18px; border: 1px solid var(--line); border-radius: 10px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; font-variant-numeric: tabular-nums; }
+th, td { text-align: left; padding: 9px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+th { font: 700 12px/1.3 var(--mono); letter-spacing: .08em; text-transform: uppercase; color: var(--muted); background: var(--panel); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.num { white-space: nowrap; }
+.note { background: var(--panel); border: 1px solid var(--line); border-left: 4px solid var(--warn); border-radius: 8px; padding: 12px 16px; margin: 14px 0; max-width: 72ch; }
+.note.tip { border-left-color: var(--good); }
+.note strong:first-child { font-family: var(--display); }
+.steps { counter-reset: s; list-style: none; padding: 0; display: grid; gap: 12px; max-width: 72ch; }
+.steps > li { counter-increment: s; display: grid; grid-template-columns: 40px minmax(0, 1fr); gap: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; margin: 0; }
+.steps > li::before { content: counter(s); font: 800 22px/1 var(--display); color: var(--accent-ink); background: var(--accent); border-radius: 8px; width: 36px; height: 36px; display: grid; place-items: center; }
+.steps > li > div > strong:first-child { display: block; font-family: var(--display); font-size: 18px; margin-bottom: 2px; }
+.level { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: 8px; vertical-align: -1px; }
+.ladder { list-style: none; padding: 0; display: grid; gap: 8px; max-width: none; }
+.ladder li { display: grid; grid-template-columns: 34px minmax(0, 1fr); gap: 12px; background: var(--panel); border: 1px solid var(--line); border-radius: 10px; padding: 12px 14px; margin: 0; }
+.ladder .rank { font: 800 20px/1 var(--display); color: var(--accent); }
+.ladder h4 { margin: 0 0 4px; font: 700 17px/1.3 var(--display); }
+.ladder p { margin: 2px 0; font-size: 15px; color: var(--muted); max-width: none; }
+.ladder p b { color: var(--fg); font-weight: 700; }
+dl.faq { max-width: 72ch; }
+dl.faq dt { font: 700 17px/1.35 var(--display); margin-top: 18px; }
+dl.faq dd { margin: 4px 0 0; }
+.cols { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr)); gap: 16px; }
+footer { max-width: 1180px; margin: 24px auto 0; color: var(--muted); font-size: 14px; }
+@media (max-width: 900px) {
+  .wrap { grid-template-columns: minmax(0, 1fr); gap: 8px; }
+  nav.rail { position: static; max-height: none; border: 1px solid var(--line); border-radius: 10px; padding: 10px; margin-bottom: 20px; }
+  nav.rail ol { grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); }
+}
+@media (prefers-reduced-motion: no-preference) { html { scroll-behavior: smooth; } }
+</style>
+</head>
+<body>
+<p style="max-width:1180px;margin:16px auto 0"><a href="index.html">&larr; VitalCore Hospital home</a></p>
+
+
+<header class="top">
+  <div class="eyebrow">VitalCore Hospital &middot; Alpha player guide</div>
+  <h1>How to run your hospital</h1>
+  <p class="lede">Everything the game can do right now, in the order you will meet it. Start with chapter 2 if you just want to get playing. Come back to the rest when something puzzles you.</p>
+  <div class="meta"><span>Written for alpha 0.9.185</span><span>Updated 15 Oct 2026</span><span>Bug? Press F8 in game</span></div>
+</header>
+
+<div class="wrap">
+<nav class="rail" aria-label="Chapters">
+  <ol>
+    <li><a href="#alpha">Before you start</a></li>
+    <li><a href="#first-hour">Your first hour</a></li>
+    <li><a href="#controls">Controls</a></li>
+    <li><a href="#screen">Reading the screen</a></li>
+    <li><a href="#building">Building</a></li>
+    <li><a href="#rooms">Rooms and what they need</a></li>
+    <li><a href="#departments">Departments</a></li>
+    <li><a href="#staff">Staff</a></li>
+    <li><a href="#patients">A patient's journey</a></li>
+    <li><a href="#take-over">Treating patients yourself</a></li>
+    <li><a href="#money">Money and supplies</a></li>
+    <li><a href="#cleaning">Cleaning</a></li>
+    <li><a href="#ladder">The Ladder</a></li>
+    <li><a href="#world">The town and the story</a></li>
+    <li><a href="#help">When something goes wrong</a></li>
+  </ol>
+</nav>
+
+<main>
+
+<section id="alpha">
+  <h2>Before you start</h2>
+  <p>VitalCore is in alpha. Things will break, and your reports are what fix them. A few things are set up differently from the finished game while we test.</p>
+  <ul>
+    <li><strong>The hospital is open 24 hours.</strong> In the finished game a new clinic opens 9 to 5 and longer hours come with each rank. For testing, every hospital is open day and night and all staff are on duty around the clock. Because of this, the Skip Night button and the end-of-day card do not appear.</li>
+    <li><strong>Difficulty does nothing yet.</strong> You can pick Standard, Relaxed or Expert on the New Game page, but every game plays the same for now.</li>
+    <li><strong>Random emergencies are off.</strong> Fires, power cuts and security events are switched off by default. Turn them on in Settings, under Interface, if you want them.</li>
+  </ul>
+  <div class="note tip"><strong>Found a bug?</strong> Press <kbd>F8</kbd>. The game saves a zip file to your Desktop with a screenshot, the log and your saves. Post it in the #bug-reports channel on Discord and say what you were doing.</div>
+  <h3>Saving</h3>
+  <ul>
+    <li>There are three save slots. Press <kbd>Esc</kbd> and choose <span class="ui">SAVE GAME</span>. The slot button under it picks which slot you save into.</li>
+    <li><kbd>F5</kbd> quick-saves into the slot you are using. <kbd>F9</kbd> quick-loads it.</li>
+    <li>The game also autosaves every 15 minutes of play into three separate autosave files. They never write over your own slots. Load the newest one from <span class="ui">LOAD HOSPITAL</span> on the main menu.</li>
+    <li>Updates never delete your saves. Older saves keep loading in new versions.</li>
+  </ul>
+</section>
+
+<section id="first-hour">
+  <h2>Your first hour</h2>
+  <p>A new game puts you on an empty lot of grass with <strong>$150,000</strong>. Your hospital starts as an <strong>Urgent Care</strong>: a small walk-in clinic for mild cases. Your job is to build it, staff it and open the doors. These are the steps in order.</p>
+  <div class="note tip"><strong>The quickest way to build.</strong> The checklist on screen has a <span class="ui">PLAN MY CLINIC</span> button that draws a complete starter clinic plan for you. The <span class="ui">ROOM KITS</span> tab in the build menu has ready-made rooms with walls, a door and all the furniture already inside. Using both, you can have a clinic standing in a few minutes.</div>
+  <ol class="steps">
+    <li><div><strong>Learn to move around</strong><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> move the camera. Hold the middle mouse button and drag to turn and tilt. Roll the mouse wheel to zoom.</div></li>
+    <li><div><strong>Open the build menu</strong>Press <kbd>B</kbd>. Everything you build comes from here.</div></li>
+    <li><div><strong>Build the urgent care rooms</strong>You need ten rooms: Reception, Waiting Room, Triage, Exam Room, Doctor's Office, Administrator Office, Staff Break Room, Restroom, Supply Room and Janitor Closet, all joined by a hallway. Add a Blood Draw room and a Laboratory too, so you can do blood tests. Place each one from <span class="ui">ROOM KITS</span>, or build it yourself (see <a href="#building">Building</a>). Click a room to see what it still needs.</div></li>
+    <li><div><strong>Give the hallway a way in</strong>Patients walk in from the street. Make sure your hallway or reception has a door to the outside, and that every room has a door onto the hallway.</div></li>
+    <li><div><strong>Build three car parks</strong>Open the <span class="ui">OUTSIDE</span> tab and place a <em>Compact Patient Parking</em>, a <em>Compact Staff Parking</em> and a <em>Compact Ambulance Bay</em>. Turn each one with <kbd>R</kbd> so its driveway faces a street. The doors will not open without all three.</div></li>
+    <li><div><strong>Hire your first staff</strong>Press <kbd>H</kbd>. A good first team is a Receptionist, two Nurses, a Doctor, a Physician Assistant, a Phlebotomist, a Lab Technician, a Janitor and a Porter. You can only hire nurses once the Triage room works, so build first and hire second.</div></li>
+    <li><div><strong>Buy supplies</strong>Press <kbd>F3</kbd> and open <span class="ui">Supplies</span>. The game does not order stock for you. Buy a few boxes of General and Lab supplies so your staff have something to work with. A truck brings them about two game hours later.</div></li>
+    <li><div><strong>Open the doors</strong>Press <span class="ui">OPEN THE DOORS</span> under the clock at the bottom right. If it will not press, it tells you what is still missing. Patients start arriving and keep coming.</div></li>
+    <li><div><strong>Watch your first patient</strong>Press <kbd>P</kbd> to see who is in the building. Follow them from reception to triage to the exam room and out the door. Your staff do all the work on their own. You only step in when you want to (see <a href="#take-over">Treating patients yourself</a>).</div></li>
+    <li><div><strong>Climb the Ladder</strong>Click the rank badge at the top right. It lists what you must do to become a Small Clinic. When every box is ticked, press <span class="ui">REQUEST INSPECTION</span>. Each new rank unlocks new rooms, staff and patients.</div></li>
+  </ol>
+</section>
+
+<section id="controls">
+  <h2>Controls</h2>
+  <p>Keys do nothing while you are typing in a box, or while the main menu, pause menu or hiring screen is open.</p>
+  <div class="cols">
+    <div>
+      <h3>Camera</h3>
+      <div class="table-scroll"><table>
+        <tr><th>Key</th><th>What it does</th></tr>
+        <tr><td><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd></td><td>Move the camera</td></tr>
+        <tr><td>Middle mouse drag</td><td>Turn and tilt</td></tr>
+        <tr><td>Mouse wheel</td><td>Zoom</td></tr>
+        <tr><td><kbd>PgUp</kbd> <kbd>PgDn</kbd></td><td>Go up or down a floor</td></tr>
+        <tr><td><kbd>Z</kbd></td><td>Roof on or off</td></tr>
+        <tr><td><kbd>X</kbd></td><td>Low walls or full walls</td></tr>
+        <tr><td><kbd>Q</kbd></td><td>Room name pins on or off</td></tr>
+        <tr><td><kbd>Space</kbd></td><td>Fly to the selected patient</td></tr>
+        <tr><td><kbd>Ctrl</kbd>+<kbd>Space</kbd></td><td>Fly to the selected staff member</td></tr>
+      </table></div>
+      <p>Edge scrolling is off by default. Turn it on in Settings, under Camera, where you can also change move, turn and zoom speed.</p>
+    </div>
+    <div>
+      <h3>Time</h3>
+      <div class="table-scroll"><table>
+        <tr><th>Key</th><th>What it does</th></tr>
+        <tr><td><kbd>1</kbd> <kbd>2</kbd> <kbd>3</kbd></td><td>Normal, double and triple speed</td></tr>
+        <tr><td><kbd>0</kbd> or <kbd>Pause</kbd></td><td>Pause and unpause</td></tr>
+        <tr><td><kbd>[</kbd> <kbd>]</kbd></td><td>Slower or faster</td></tr>
+      </table></div>
+      <p>At normal speed one game day lasts about an hour. <kbd>Space</kbd> does not pause the game. It moves the camera to your selected patient.</p>
+    </div>
+  </div>
+
+  <h3>Windows and tools</h3>
+  <div class="table-scroll"><table>
+    <tr><th>Key</th><th>Opens</th></tr>
+    <tr><td><kbd>B</kbd></td><td>Build menu</td></tr>
+    <tr><td><kbd>H</kbd></td><td>Hire staff</td></tr>
+    <tr><td><kbd>F6</kbd></td><td>Staff list and shifts</td></tr>
+    <tr><td><kbd>P</kbd></td><td>Patient list. Press <kbd>/</kbd> to search it.</td></tr>
+    <tr><td><kbd>O</kbd></td><td>Patient records: every patient you have ever treated</td></tr>
+    <tr><td><kbd>F3</kbd></td><td>Money, prices, supplies and insurance</td></tr>
+    <tr><td><kbd>L</kbd></td><td>Medical library: every illness, test, medicine and treatment explained</td></tr>
+    <tr><td><kbd>G</kbd></td><td>Glossary of medical words</td></tr>
+    <tr><td><kbd>Shift</kbd>+<kbd>G</kbd></td><td>Hospital map</td></tr>
+    <tr><td><kbd>Shift</kbd>+<kbd>F</kbd></td><td>Reviews from patients and staff</td></tr>
+    <tr><td><kbd>Shift</kbd>+<kbd>F3</kbd></td><td>Patient flow overlay</td></tr>
+    <tr><td><kbd>K</kbd></td><td>Properties: buy more land</td></tr>
+    <tr><td><kbd>U</kbd></td><td>Status labels over people's heads</td></tr>
+    <tr><td><kbd>V</kbd></td><td>Speech bubbles on or off</td></tr>
+    <tr><td><kbd>F</kbd></td><td>Walk around in first person</td></tr>
+    <tr><td><kbd>F5</kbd> / <kbd>F9</kbd></td><td>Quick save / quick load</td></tr>
+    <tr><td><kbd>F8</kbd></td><td>Save a bug report to your Desktop</td></tr>
+    <tr><td><kbd>F12</kbd></td><td>Screenshot</td></tr>
+    <tr><td><kbd>Esc</kbd></td><td>Close the top window. With nothing open, it opens the pause menu.</td></tr>
+  </table></div>
+
+  <h3>Patients and staff</h3>
+  <div class="table-scroll"><table>
+    <tr><th>Key</th><th>What it does</th></tr>
+    <tr><td>Left click</td><td>Select a patient, staff member or room</td></tr>
+    <tr><td>Right click</td><td>With a staff member selected, send them to that spot</td></tr>
+    <tr><td><kbd>,</kbd> <kbd>.</kbd></td><td>Previous or next patient</td></tr>
+    <tr><td><kbd>Home</kbd></td><td>Select the sickest patient</td></tr>
+    <tr><td><kbd>Ctrl</kbd>+<kbd>PgUp</kbd> / <kbd>PgDn</kbd></td><td>Previous or next staff member</td></tr>
+    <tr><td><kbd>End</kbd></td><td>Select the busiest staff member</td></tr>
+    <tr><td><kbd>E</kbd></td><td>Take over the selected patient's care and open the Care Desk</td></tr>
+    <tr><td><kbd>T</kbd></td><td>Comfort the selected patient while they wait</td></tr>
+    <tr><td><kbd>I</kbd></td><td>Move the selected patient to intensive care</td></tr>
+    <tr><td><kbd>Alt</kbd>+<kbd>1</kbd> to <kbd>9</kbd></td><td>Jump to a page of the patient's chart</td></tr>
+    <tr><td><kbd>Y</kbd> / <kbd>N</kbd></td><td>Hold new arrivals / let the next one in</td></tr>
+  </table></div>
+
+  <h3>While building</h3>
+  <div class="table-scroll"><table>
+    <tr><th>Key</th><th>What it does</th></tr>
+    <tr><td>Left click</td><td>Place</td></tr>
+    <tr><td>Click and drag</td><td>Draw floors, walls, rooms, paint, or a demolish box</td></tr>
+    <tr><td><kbd>R</kbd></td><td>Turn the piece in your hand</td></tr>
+    <tr><td>Right click or <kbd>Esc</kbd></td><td>Drop the piece in your hand</td></tr>
+    <tr><td>Hold <kbd>Shift</kbd></td><td>Place furniture freely, without lining it up</td></tr>
+    <tr><td><kbd>Shift</kbd>+click</td><td>With paint or wallpaper, do the whole room at once</td></tr>
+    <tr><td><kbd>Ctrl</kbd>+<kbd>Z</kbd> / <kbd>Ctrl</kbd>+<kbd>Y</kbd></td><td>Undo / redo (build menu open)</td></tr>
+  </table></div>
+
+  <h3>First person</h3>
+  <p>Press <kbd>F</kbd> to step into the hospital at the spot under your mouse. Press <kbd>F</kbd> again to go back to the overhead view.</p>
+  <ul>
+    <li><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> walk, <kbd>Shift</kbd> runs, and the mouse looks around. Doors open for you.</li>
+    <li>Look at a patient and press <kbd>E</kbd> to raise their chart on your tablet.</li>
+    <li>Look at the desk in the Administrator Office and press <kbd>E</kbd> to sit at the computer.</li>
+    <li>Anywhere else, <kbd>E</kbd> raises your hospital tablet. The game holds still while the tablet is up.</li>
+    <li><kbd>B</kbd> builds from first person. The game pauses, you pick a piece, then aim and click to place it.</li>
+    <li>Inside a lift, press a number key to choose a floor.</li>
+  </ul>
+</section>
+
+<section id="screen">
+  <h2>Reading the screen</h2>
+  <ul>
+    <li><strong>Money and clock</strong>, bottom right. The money turns amber below $20,000. Click the money to open the finance window. The speed buttons sit beside the clock.</li>
+    <li><strong>Open the doors</strong>, under the clock. You press it once, when your clinic is ready.</li>
+    <li><strong>Department bar</strong>, along the bottom. Green means a department is working. Amber means something is missing. Grey means it is not built. A padlock means your rank is too low. Click a department to see its rooms and its day and night staff.</li>
+    <li><strong>Medical Board News</strong>, the strip at the very bottom. Click it to read the news.</li>
+    <li><strong>Floor strip and pins</strong>, bottom left. It shows which floor you are on. The <span class="ui">PINS</span> switch shows each room's name.</li>
+    <li><strong>Clean</strong> percentage, bottom left. Click it to see which rooms need cleaning.</li>
+    <li><strong>Red alert ribbon</strong>, top centre. It warns about critical patients, people stuck at the door, no free beds and missing staff. Click it to open the list, then click a line to jump to the problem.</li>
+    <li><strong>Rank badge</strong>, top right. Click it to see the Ladder: your goals for the next rank.</li>
+    <li><strong>Selected patient card.</strong> It has buttons for the chart, taking over care, letting the doctor handle it, calling a nurse, and more.</li>
+    <li><strong>Room panel.</strong> Click a room to see its size, its doors, the furniture it has, and whether it is <span class="ui">VALID</span>. If not, it says what is missing.</li>
+  </ul>
+</section>
+
+<section id="building">
+  <h2>Building</h2>
+  <p>The build menu has a row of tabs along the top and a row of tools along the bottom.</p>
+  <div class="table-scroll"><table>
+    <tr><th>Tab</th><th>What is in it</th></tr>
+    <tr><td><span class="ui">STRUCTURE</span></td><td><em>Build foundations</em> to lay floor, and <em>Add upstairs floor</em></td></tr>
+    <tr><td><span class="ui">WALLS</span></td><td>Walls, dragged in straight runs</td></tr>
+    <tr><td><span class="ui">OPENINGS</span></td><td>Doors and windows. They snap into the wall you point at.</td></tr>
+    <tr><td><span class="ui">PAINT</span></td><td>Floor colours and wallpaper</td></tr>
+    <tr><td><span class="ui">ITEMS</span></td><td>All furniture and equipment, with a search box</td></tr>
+    <tr><td><span class="ui">OUTSIDE</span></td><td>Car parks, the ambulance bay, walkways, trees, benches and lamps</td></tr>
+    <tr><td><span class="ui">ROOM KITS</span></td><td>Finished rooms you place in one click</td></tr>
+  </table></div>
+  <p>The bottom row has <span class="ui">ROOMS</span> (mark out a room), <span class="ui">MOVE</span>, <span class="ui">DEMOLISH</span>, <span class="ui">CLEAR ROOMS</span> (removes every room label, but keeps the walls and furniture) and <span class="ui">UNDO</span>.</p>
+
+  <h3>Building a room by hand</h3>
+  <ol>
+    <li><strong>Lay the floor.</strong> In <span class="ui">STRUCTURE</span>, choose <em>Build foundations</em> and drag a rectangle.</li>
+    <li><strong>Wall it in.</strong> In <span class="ui">WALLS</span>, drag around the edge.</li>
+    <li><strong>Add a door.</strong> In <span class="ui">OPENINGS</span>, point at a wall and click. Doors have a sign strip, so you can pick the sign over the door or let it name itself after the room.</li>
+    <li><strong>Mark the room.</strong> Click <span class="ui">ROOMS</span>, choose the room type, and drag over the floor. This only labels the floor. It does not build walls. Dragging next to a room of the same type joins them.</li>
+    <li><strong>Furnish it.</strong> Click the room. The <span class="ui">ITEMS</span> tab narrows to that room and shows <em>Required Equipment</em> first, then <em>Optional / Decor</em>.</li>
+  </ol>
+  <p>A room works only when all of these are true:</p>
+  <ul>
+    <li>It is at least the minimum size for its type. The table in the next chapter lists them.</li>
+    <li>It is closed in by walls, windows and doors. A Reception and a Waiting Room may be open to each other. A hallway may be open where it meets the entrance or another hallway.</li>
+    <li>It has a door. Reception, Waiting Room and Hallway do not need one.</li>
+    <li>It holds everything on its required list.</li>
+    <li>It shares a side with a hallway, so people can walk in.</li>
+  </ul>
+  <p>The room's panel tells you which of these is wrong, for example <em>"Missing 1 &times; Sink"</em> or <em>"The room is not closed in."</em></p>
+
+  <h3>Room kits</h3>
+  <p>A kit is a complete room: floor, walls, door and all the furniture. Pick one from <span class="ui">ROOM KITS</span>, turn it with <kbd>R</kbd> and click. The price shows before you click. You can filter kits by department. To save your own design, use <span class="ui">Save room as kit</span> and click inside the room. Only kits you saved can be removed.</p>
+
+  <h3>Furniture</h3>
+  <ul>
+    <li><strong>Floor pieces</strong> stand on tiles and block them. Turn them with <kbd>R</kbd>.</li>
+    <li><strong>Wall pieces</strong> such as clocks and cabinets hang on a wall. Point at the wall to place them.</li>
+    <li><strong>Desk-top pieces</strong> such as computers sit on a desk or bench.</li>
+    <li><strong>Loose pieces</strong> such as chairs and the surgical lamp do not block tiles. Put a chair in front of its desk yourself. Nothing snaps into place, and the desk finds its chair by where it stands.</li>
+    <li>Some pieces have colour choices. Pick one from the swatches before placing.</li>
+  </ul>
+
+  <h3>Moving, demolishing and undoing</h3>
+  <ul>
+    <li><span class="ui">MOVE</span> picks up a piece of furniture. Click a clear spot to put it down, or right-click to put it back.</li>
+    <li><span class="ui">DEMOLISH</span> removes what you click. Drag a box to remove walls, doors, windows, floor and furniture together. A floor with furniture on it must be cleared first.</li>
+    <li>Selling or demolishing gives back half of what the piece cost.</li>
+    <li><kbd>Ctrl</kbd>+<kbd>Z</kbd> undoes building while the build menu is open.</li>
+  </ul>
+
+  <h3>Costs</h3>
+  <div class="table-scroll"><table>
+    <tr><th>What</th><th>Cost</th></tr>
+    <tr><td>Floor</td><td class="num">$50 a tile</td></tr>
+    <tr><td>Wall</td><td class="num">$100 a section</td></tr>
+    <tr><td>Door</td><td class="num">$300</td></tr>
+    <tr><td>Window</td><td class="num">$250</td></tr>
+    <tr><td>Furniture</td><td>Its own price, shown on its card</td></tr>
+    <tr><td>Room kit</td><td>The room and all its furniture, shown before you place it</td></tr>
+  </table></div>
+  <p>If you cannot afford something, the piece turns red and the game says what it costs. Every room also has a small daily upkeep cost.</p>
+
+  <h3>Upstairs floors and lifts</h3>
+  <ul>
+    <li><kbd>PgUp</kbd> and <kbd>PgDn</kbd> change the floor you see and build on.</li>
+    <li><em>Add upstairs floor</em> builds one level above your highest floor.</li>
+    <li>Every upstairs tile needs a floor or a pillar on the level below, no more than two tiles away. Pillars stand on the ground floor only.</li>
+    <li><strong>There are no stairs.</strong> People move between floors by lift. Mark a <em>Lift</em> room on the ground floor and the same tiles on the floor above, and give each floor a lift door. You can ride the lift yourself in first person.</li>
+    <li>The roof builds itself over any enclosed room.</li>
+  </ul>
+
+  <h3>Outside</h3>
+  <ul>
+    <li><strong>Car parks.</strong> You need a <em>Compact Patient Parking</em>, a <em>Compact Staff Parking</em> and a <em>Compact Ambulance Bay</em> before the doors open. Each lays its own driveway. If it cannot reach a street, turn it with <kbd>R</kbd>.</li>
+    <li><strong>Walkways</strong> come in five surfaces. Drag them across the lawn.</li>
+    <li><strong>Grounds</strong> pieces such as trees, hedges, benches and street lamps go on the lawn.</li>
+    <li>The town builds the roads, pavements and bus stops. You cannot place those.</li>
+  </ul>
+</section>
+
+<section id="rooms">
+  <h2>Rooms and what they need</h2>
+  <p>The size is the smallest the room may be, in tiles. Rooms in a kit are a little bigger, to leave room to walk. "Opens at" is the rank that unlocks the room.</p>
+  <div class="table-scroll"><table>
+    <tr><th>Room</th><th>Min size</th><th>Opens at</th><th>Must contain</th></tr>
+    <tr><td>Reception</td><td class="num">3&times;3</td><td>Start</td><td>Reception desk, reception computer, reception chair</td></tr>
+    <tr><td>Waiting Room</td><td class="num">4&times;4</td><td>Start</td><td>4 waiting seats (a bench counts each seat), trash bin</td></tr>
+    <tr><td>Triage</td><td class="num">3&times;3</td><td>Start</td><td>Exam table, vitals monitor, weight and height scales, desk, chair, computer, alcohol dispenser</td></tr>
+    <tr><td>Exam Room</td><td class="num">4&times;4</td><td>Start</td><td>Exam table, doctor desk, office chair, patient chair, computer, sink</td></tr>
+    <tr><td>Doctor's Office</td><td class="num">4&times;4</td><td>Start</td><td>Doctor desk, office chair, computer, patient chair. No exam table, no sink.</td></tr>
+    <tr><td>Blood Draw</td><td class="num">3&times;3</td><td>Start</td><td>2 blood collection chairs, sink, medical waste bin</td></tr>
+    <tr><td>Laboratory</td><td class="num">4&times;4</td><td>Start</td><td>Lab bench, microscope, centrifuge, analyser, lab fridge, sink</td></tr>
+    <tr><td>Administrator Office</td><td class="num">3&times;3</td><td>Start</td><td>Office desk, office chair, computer, file cabinet</td></tr>
+    <tr><td>Staff Break Room</td><td class="num">4&times;3</td><td>Start</td><td>Table, chairs, couch, kitchen sink, fridge, coffee machine</td></tr>
+    <tr><td>Restroom</td><td class="num">2&times;2</td><td>Start</td><td>Toilet, sink, trash bin</td></tr>
+    <tr><td>Supply Room</td><td class="num">3&times;3</td><td>Start</td><td>2 supply shelves, metal shelving</td></tr>
+    <tr><td>Janitor Closet</td><td class="num">2&times;2</td><td>Start</td><td>Mop sink, mop bucket, supply shelf</td></tr>
+    <tr><td>Storage</td><td class="num">2&times;2</td><td>Start</td><td>Supply shelf, metal shelving</td></tr>
+    <tr><td>Medication Room</td><td class="num">3&times;3</td><td>Start</td><td>Medicine cabinet, medicine shelving, fridge, sink</td></tr>
+    <tr><td>Morgue</td><td class="num">3&times;4</td><td>Start</td><td>Autopsy table, instrument stand, sink, body fridge, medical waste bin</td></tr>
+    <tr><td>Lift</td><td class="num">1&times;1</td><td>Start</td><td>A lift door on every floor</td></tr>
+    <tr><td>Hallway</td><td class="num">1&times;1</td><td>Start</td><td>Nothing. Seats, plants and water coolers are allowed.</td></tr>
+    <tr><td>X-Ray (Radiology)</td><td class="num">4&times;4</td><td>Small Clinic</td><td>X-ray table, X-ray tube, wall stand, control booth and chair, warning sign</td></tr>
+    <tr><td>Imaging Office</td><td class="num">4&times;3</td><td>Small Clinic</td><td>Desk, 2 office chairs, computer</td></tr>
+    <tr><td>Ultrasound</td><td class="num">4&times;4</td><td>Small Clinic</td><td>Ultrasound machine, exam table, sink</td></tr>
+    <tr><td>Pharmacy</td><td class="num">4&times;3</td><td>Small Clinic</td><td>Dispensing desk, chair, computer, medicine shelving, medicine cabinet</td></tr>
+    <tr><td>Cafeteria</td><td class="num">5&times;4</td><td>Small Clinic</td><td>Cafeteria counter, kitchen range, kitchen sink, tables and chairs</td></tr>
+    <tr><td>Gift Shop</td><td class="num">3&times;3</td><td>Small Clinic</td><td>Counter, 2 shelves</td></tr>
+    <tr><td>Emergency (Trauma)</td><td class="num">5&times;5</td><td>Community Hospital</td><td>2 hospital beds or stretchers, defibrillator, vitals monitor, sink, crash cart</td></tr>
+    <tr><td>Patient Room (ward)</td><td class="num">3&times;3</td><td>Community Hospital</td><td>Hospital bed, bedside cabinet, vitals monitor, sink</td></tr>
+    <tr><td>Treatment Room</td><td class="num">4&times;4</td><td>Community Hospital</td><td>Treatment table, sink, medical waste bin, supply cabinet</td></tr>
+    <tr><td>Nurse Station</td><td class="num">3&times;3</td><td>Community Hospital</td><td>Nurse station desk, office chair, computer, filing cabinet</td></tr>
+    <tr><td>Specialty offices</td><td class="num">3&times;3</td><td>Community Hospital and later</td><td>Doctor desk, office chair, computer, exam table, and the specialty's own device</td></tr>
+    <tr><td>Operating Room</td><td class="num">5&times;5</td><td>Regional Medical Center</td><td>Operating table, surgical lamp, anaesthesia machine, vitals monitor, instrument stand. No sink inside.</td></tr>
+    <tr><td>ICU</td><td class="num">5&times;5</td><td>Regional Medical Center</td><td>Hospital bed, patient monitor, ventilator, infusion pump, defibrillator, crash cart, sink</td></tr>
+    <tr><td>CT</td><td class="num">8&times;8</td><td>Regional Medical Center</td><td>CT scanner, warning sign</td></tr>
+    <tr><td>MRI</td><td class="num">8&times;8</td><td>Level II Trauma</td><td>MRI scanner. Nothing made of metal is allowed in the room.</td></tr>
+    <tr><td>Isolation</td><td class="num">3&times;3</td><td>Level II Trauma</td><td>Hospital bed, sink, vitals monitor</td></tr>
+    <tr><td>Autopsy, On-Call</td><td class="num">4&times;4, 3&times;3</td><td>Level I Trauma</td><td>Autopsy table; a bed and bedside table</td></tr>
+  </table></div>
+  <p>If a room shows <em>"Missing"</em>, click it and look at the top of the <span class="ui">ITEMS</span> tab. The pieces it needs are listed there.</p>
+</section>
+
+<section id="departments">
+  <h2>Departments</h2>
+  <p>Every room belongs to a department. Most rooms pick their department by themselves: an X-ray room belongs to Radiology, for example. The bar along the bottom shows each department and whether it works.</p>
+  <ul>
+    <li><strong>Click a department</strong> to open its board. It shows the rooms it needs, which of them work, and its day and night staff.</li>
+    <li><strong>Plan rooms from the board.</strong> Pick a room and drag on the ground to plan it, even before you lay a floor. The plan shows where to build.</li>
+    <li><span class="ui">ASSIGN ROOMS</span> gives rooms to that department. Use it for shared rooms like a ward, an ICU, a nurse station or a waiting room. <span class="ui">REMOVE ROOMS</span> takes them away again.</li>
+    <li><strong>Each department can have its own waiting room.</strong> A patient waiting for an X-ray sits in Radiology's waiting room. An untagged waiting room takes the department of the rooms around it.</li>
+    <li>You can hire into a department once its rooms are built and furnished. It only takes patients once it has staff too.</li>
+  </ul>
+</section>
+
+<section id="staff">
+  <h2>Staff</h2>
+  <p>Press <kbd>H</kbd> to hire. You see four candidates for the job you pick. Each has a star level from 1 to 5, a wage and up to three traits. You can pay $2,500 to see a new set, or $1,000 to reveal their traits before you hire. New hires travel in from home by car, bus or on foot, so they take a little while to arrive.</p>
+  <div class="table-scroll"><table>
+    <tr><th>Job</th><th>What they do</th><th>Hiring fee</th><th>Daily wage</th></tr>
+    <tr><td>Receptionist</td><td>Checks patients in at the desk</td><td class="num">$4,500</td><td class="num">$650</td></tr>
+    <tr><td>Nurse</td><td>Triage, vitals, medicines, moving patients. Needs a working Triage room before you can hire one.</td><td class="num">$7,000</td><td class="num">$950</td></tr>
+    <tr><td>Doctor</td><td>Examines, orders tests, diagnoses and treats</td><td class="num">$12,000</td><td class="num">$1,800</td></tr>
+    <tr><td>Physician Assistant</td><td>Sees mild cases in exam rooms</td><td class="num">$9,500</td><td class="num">$1,300</td></tr>
+    <tr><td>Phlebotomist</td><td>Takes blood samples</td><td class="num">$6,000</td><td class="num">$800</td></tr>
+    <tr><td>Lab Technician</td><td>Runs samples in the laboratory</td><td class="num">$8,500</td><td class="num">$1,100</td></tr>
+    <tr><td>Janitor</td><td>Cleans rooms. You need one to open.</td><td class="num">$3,500</td><td class="num">$525</td></tr>
+    <tr><td>Porter</td><td>Carries delivered supplies to the shelves</td><td class="num">$3,200</td><td class="num">$480</td></tr>
+    <tr><td>Radiology Technician</td><td>Takes X-rays and scans (Small Clinic)</td><td class="num">$9,000</td><td class="num">$1,200</td></tr>
+    <tr><td>Pharmacy Technician</td><td>Runs the pharmacy (Small Clinic)</td><td class="num">$8,000</td><td class="num">$1,050</td></tr>
+    <tr><td>Cafeteria Worker</td><td>Serves food. The counter stays shut without one.</td><td class="num">$2,400</td><td class="num">$360</td></tr>
+    <tr><td>Ward Nurse</td><td>Looks after patients on the wards (Community Hospital)</td><td class="num">$7,500</td><td class="num">$1,000</td></tr>
+  </table></div>
+
+  <h3>Doctor roles</h3>
+  <p>Doctors are one job with up to four <strong>roles</strong> each. You give a doctor a role on their staff card, in the <span class="ui">ROLES</span> section. Better doctors can take harder roles.</p>
+  <div class="table-scroll"><table>
+    <tr><th>Doctor's stars</th><th>Roles they can take</th></tr>
+    <tr><td>1 star</td><td>Emergency, General practice</td></tr>
+    <tr><td>2 stars</td><td>Internal medicine, Radiology, Infectious diseases</td></tr>
+    <tr><td>3 stars</td><td>Anaesthesia, Cardiology, Neurology, Orthopaedics, Traumatology and the other specialties</td></tr>
+    <tr><td>4 stars</td><td>Surgery, Intensive care</td></tr>
+  </table></div>
+  <p>A doctor with the Radiology role reads scans. Without one, another doctor reads them more slowly. Surgery needs one doctor with the Surgery role and one with Anaesthesia.</p>
+
+  <h3>Shifts, breaks and wages</h3>
+  <ul>
+    <li>Press <kbd>F6</kbd> for the staff list. The day shift runs 07:00 to 19:00 and the night shift 19:00 to 07:00. You can also set someone to Off or On call. While we test, all staff work around the clock.</li>
+    <li>Staff get hungry, tired, stressed and need the toilet. They use the Staff Break Room and the Restroom. Without those rooms they wear out faster.</li>
+    <li>Traits change how people work. A <em>Fast</em> nurse works quicker, a <em>Clumsy</em> one makes mistakes, a <em>Tidy</em> janitor cleans better.</li>
+    <li>Good staff sometimes ask for a raise. You can accept, offer less, or say no. Saying no can make them work worse or quit.</li>
+    <li>If you cannot pay wages for three days in a row, staff start to resign.</li>
+    <li>You can send staff on training courses. They are away for 2 to 5 days and come back with more stars or a new role.</li>
+  </ul>
+</section>
+
+<section id="patients">
+  <h2>A patient's journey</h2>
+  <p>Your staff handle every step on their own. This is what they do, so you know where to look when something stalls.</p>
+  <ol class="steps">
+    <li><div><strong>Arrive</strong>Patients come on foot, by car, by bus or by ambulance. Ambulances only come once you have an Emergency department. At most 40 patients can be inside at once.</div></li>
+    <li><div><strong>Check in</strong>They queue at reception and a receptionist registers them. Very mild cases, such as a small cut or the flu, skip the desk and go straight to a waiting room.</div></li>
+    <li><div><strong>Triage</strong>A nurse takes them into the Triage room, weighs them, and takes their first vital signs: pulse, blood pressure, breathing, temperature, oxygen and pain. Then the nurse decides how urgent they are.</div></li>
+    <li><div><strong>Wait</strong>They wait for a free exam room or bed. Long waits make them stressed and lower your reviews.</div></li>
+    <li><div><strong>See the doctor</strong>The doctor talks to them, examines them, and listens to their chest. Each of these finds different clues.</div></li>
+    <li><div><strong>Tests</strong>The doctor orders tests. Some happen at the bedside. Others mean a trip, by wheelchair or stretcher, to the room with the right machine.</div></li>
+    <li><div><strong>Diagnosis and treatment</strong>When the results are in, the doctor names the illness and treats it. Doctors order medicines and nurses give them. Doctors do procedures such as casts and stitches themselves.</div></li>
+    <li><div><strong>Stay or go home</strong>Most patients go home. Serious illnesses, like pneumonia, sepsis or a heart attack, need a stay in a ward bed. A nurse wheels them there and checks on them in rounds.</div></li>
+    <li><div><strong>Discharge</strong>A nurse takes a final set of vitals and does the paperwork. The doctor may print a prescription. The patient changes, pays, and goes home the way they came.</div></li>
+  </ol>
+
+  <h3>Triage levels</h3>
+  <div class="table-scroll"><table>
+    <tr><th>Level</th><th>Meaning</th><th>Should be seen within</th><th>Where</th></tr>
+    <tr><td><span class="level" style="background:var(--t1)"></span>1</td><td>Critical</td><td class="num">Now</td><td>Emergency bed</td></tr>
+    <tr><td><span class="level" style="background:var(--t2)"></span>2</td><td>Emergent</td><td class="num">5 min</td><td>Emergency bed</td></tr>
+    <tr><td><span class="level" style="background:var(--t3)"></span>3</td><td>Urgent</td><td class="num">20 min</td><td>Emergency bed, or an exam room at a Small Clinic</td></tr>
+    <tr><td><span class="level" style="background:var(--t4)"></span>4</td><td>Semi-urgent</td><td class="num">45 min</td><td>Exam room (fast track)</td></tr>
+    <tr><td><span class="level" style="background:var(--t5)"></span>5</td><td>Non-urgent</td><td class="num">90 min</td><td>Exam room (fast track)</td></tr>
+  </table></div>
+  <p>Your rank decides who you may keep. An Urgent Care only treats levels 4 and 5. A Small Clinic adds level 3. Levels 1 and 2 need an Emergency department. Anyone sicker than you can handle is sent on to a bigger hospital at triage. You earn nothing for them, and their family will leave a poor review.</p>
+
+  <h3>Tests and where they happen</h3>
+  <div class="table-scroll"><table>
+    <tr><th>Test</th><th>Needs</th><th>Who does it</th></tr>
+    <tr><td>Repeat vitals</td><td>Vitals monitor, at the bedside</td><td>Nurse</td></tr>
+    <tr><td>Heart tracing (EKG)</td><td>EKG cart, at the bedside</td><td>Nurse</td></tr>
+    <tr><td>Blood tests</td><td>Blood collection chair, then the Laboratory</td><td>Phlebotomist draws, Lab Technician runs</td></tr>
+    <tr><td>Urine, swabs and other samples</td><td>Lab bench in the Laboratory</td><td>Lab Technician</td></tr>
+    <tr><td>X-ray</td><td>X-ray room</td><td>Radiology Technician; a doctor with the Radiology role reads it</td></tr>
+    <tr><td>Ultrasound</td><td>Ultrasound room</td><td>Radiology Technician</td></tr>
+    <tr><td>CT scan</td><td>CT room</td><td>Radiology Technician</td></tr>
+    <tr><td>MRI scan</td><td>MRI room</td><td>Radiology Technician</td></tr>
+  </table></div>
+  <p>Most patients arrive with illnesses your hospital has the equipment to work out, so building a new test room brings new kinds of patients.</p>
+
+  <h3>Surgery</h3>
+  <p>From Regional Medical Center you can operate. You need a working Operating Room, a doctor with the Surgery role and a doctor with the Anaesthesia role. The surgeon, an assistant, the anaesthetist and a scrub nurse work together, and the patient then recovers on a ward. Without all three, a patient who needs an operation is sent to another hospital by ambulance.</p>
+
+  <h3>When things go badly</h3>
+  <ul>
+    <li><strong>Critical arrivals you cannot treat.</strong> If a level 1 or 2 patient turns up before you have an Emergency department, an alarm sounds. Keep them stable until the paramedics arrive in 60 seconds. A nurse does this for you, or you can step in yourself in first person: press <kbd>E</kbd> to grab the crash cart, then hold <kbd>E</kbd> to help them breathe.</li>
+    <li><strong>Code Blue.</strong> A patient who collapses needs chest compressions within 45 seconds. The nearest doctor or nurse runs to them.</li>
+    <li><strong>Deaths.</strong> Untreated serious illness gets worse over hours. With a Morgue, a nurse takes the body there.</li>
+  </ul>
+
+  <h3>Patients come back</h3>
+  <p>Patients live in real homes in the town. About a quarter of new arrivals are people you have treated before. They grow older between visits, about a year for every three days of game time, and keep their history and allergies. Some arrivals are relatives of earlier patients, with the same surname and home. Their chart shows their family history. Press <kbd>O</kbd> to look anyone up.</p>
+</section>
+
+<section id="take-over">
+  <h2>Treating patients yourself</h2>
+  <p>Every patient starts out <strong>doctor managed</strong>: your staff decide everything. You can take over any patient at any time and make the calls yourself. Your staff still carry out what you order.</p>
+  <h3>From the overhead view</h3>
+  <ol>
+    <li>Click a patient, then press <kbd>E</kbd>, or press <span class="ui">TAKE OVER</span> on their card. This opens the <strong>Care Desk</strong>.</li>
+    <li><span class="ui">ORDERS</span> and <span class="ui">ASK</span>: order tests and ask questions. Tests you cannot do yet are greyed out until you build their room.</li>
+    <li><span class="ui">DIAGNOSE</span>: see the clues found so far and a "?" for each one still hidden, with the test that would find it. Add the illnesses you suspect, then press <span class="ui">SET FINAL DIAGNOSIS</span>. <span class="ui">CONSULT STAFF</span> asks your most experienced doctor for their opinion.</li>
+    <li><span class="ui">TREAT</span>: choose the treatment.</li>
+    <li><span class="ui">FINISH</span>: watch and reassess, write a prescription, keep them in, send them to intensive care, or discharge them.</li>
+  </ol>
+  <p>Get the diagnosis wrong and the patient gets worse for a while. The chart flags it so you can try again. Press <span class="ui">LET DOCTOR HANDLE</span> at any time to hand the patient back.</p>
+  <h3>In first person</h3>
+  <p>Walk up to a patient and press <kbd>E</kbd>. Your tablet shows their chart, with tabs for Overview, History, Vitals, Results, Medicines, Diagnosis and Care. Only the Overview opens before the triage nurse has seen them. On the <span class="ui">CARE</span> tab, press <span class="ui">TAKE OVER CARE</span> to get the full Care Desk. The hands-on exams there need you to stand beside the patient.</p>
+  <div class="note tip"><strong>Stuck on a word?</strong> Press <kbd>L</kbd> for the Medical Library. It explains every illness, test, medicine and treatment in plain words. You can also click an illness in the diagnosis list to read about it.</div>
+</section>
+
+<section id="money">
+  <h2>Money and supplies</h2>
+  <p>Press <kbd>F3</kbd>, or click your money, to open the finance window. It has four pages.</p>
+  <h3>Money</h3>
+  <ul>
+    <li>Money comes in from patient bills, insurance payments, grants and food sales.</li>
+    <li>Money goes out on wages, running costs, room upkeep and anything you build or buy.</li>
+    <li>Short of cash? The <span class="ui">Borrow</span> button lends you up to $200,000 at 1% a day.</li>
+  </ul>
+  <h3>Prices</h3>
+  <p>One slider for each kind of charge: consults, tests, treatment, surgery and food. You can set each from half price to double. Higher prices bring in more per patient, but fewer people come and they review you worse.</p>
+  <h3>Insurance</h3>
+  <p>Six insurance companies send you patients. Each pays a different share of the bill, takes a different time to pay, and turns down a different share of claims. You can accept or turn away each company. Turn one away and most of its customers go elsewhere. Insurers also set a daily target of patients treated, with a bonus when you meet it.</p>
+  <h3>Supplies</h3>
+  <div class="note"><strong>The game does not order supplies for you.</strong> Staff use up stock with every test and treatment. When it runs out, work stops. Keep an eye on this page.</div>
+  <ul>
+    <li>There are five kinds of supplies: Lab, Imaging, Surgical, General and Food. Each box gives 10 uses.</li>
+    <li>A truck delivers about two game hours after you order, and leaves the boxes at the door. A Porter carries them to the shelves. Without a porter, the driver does it more slowly.</li>
+    <li>Shelves in your Supply Room hold the stock. More shelves hold more boxes.</li>
+    <li>Medicines are separate. With a Pharmacy and a Pharmacy Technician, the pharmacy hands them out and restocks itself from your cash.</li>
+  </ul>
+</section>
+
+<section id="cleaning">
+  <h2>Cleaning</h2>
+  <p>Rooms get dirty from being used, not from time passing. The busiest rooms get dirty fastest. Click the <span class="ui">Clean</span> percentage at the bottom left to see the dirtiest rooms first.</p>
+  <div class="table-scroll"><table>
+    <tr><th>State</th><th>Clean level</th><th>What it means</th></tr>
+    <tr><td>Clean</td><td class="num">70 and up</td><td>All good</td></tr>
+    <tr><td>Grubby</td><td class="num">40 to 69</td><td>Patients notice</td></tr>
+    <tr><td>Dirty</td><td class="num">20 to 39</td><td>Patients and staff can catch infections</td></tr>
+    <tr><td>Unsafe</td><td class="num">Below 20</td><td>No procedures in this room until it is cleaned</td></tr>
+  </table></div>
+  <p>Janitors take their cart from the Janitor Closet and clean a few rooms each round, on their own. Hire more janitors as you grow.</p>
+</section>
+
+<section id="ladder">
+  <h2>The Ladder</h2>
+  <p>Your hospital climbs eight ranks. Click the rank badge at the top right to see the goals for the next one. When every goal is ticked, press <span class="ui">REQUEST INSPECTION</span>. The inspector checks and either promotes you or tells you what is still to do. Your star rating only counts once at least 10 patients have reviewed you.</p>
+  <ol class="ladder">
+    <li><span class="rank">1</span><div><h4>Urgent Care</h4><p><b>You start here.</b> Mild cases only, levels 4 and 5.</p></div></li>
+    <li><span class="rank">2</span><div><h4>Small Clinic</h4><p><b>Goals:</b> 25 patients treated and sent home, 3.0 stars, 2 working exam rooms, 5 staff, 3 days in a row with money in the bank, accreditation 50.</p><p><b>Unlocks:</b> X-ray, ultrasound, imaging office, pharmacy, cafeteria, gift shop. Radiology and pharmacy technicians. Level 3 patients.</p></div></li>
+    <li><span class="rank">3</span><div><h4>Community Hospital</h4><p><b>Goals:</b> 100 treated, 3.3 stars, 20 lab tests, 20 scans, 10 staff, accreditation 55.</p><p><b>Unlocks:</b> Emergency department, wards, treatment rooms, nurse stations, internal medicine and the outpatient specialties. Ward nurses. Ambulances, and level 1 and 2 patients.</p></div></li>
+    <li><span class="rank">4</span><div><h4>Regional Medical Center</h4><p><b>Goals:</b> 250 treated, 3.5 stars, 8 working ward beds, 30 ambulance patients, fewer than 5% of patients die, 20 staff, accreditation 62.</p><p><b>Unlocks:</b> Operating rooms and surgery, intensive care, CT, cardiology, neurology, orthopaedics.</p></div></li>
+    <li><span class="rank">5</span><div><h4>Level II Trauma</h4><p><b>Goals:</b> 500 treated, 3.8 stars, 20 operations, 4 intensive care beds, emergency ready day and night, 35 staff, accreditation 70.</p><p><b>Unlocks:</b> MRI, isolation rooms, traumatology, infectious diseases.</p></div></li>
+    <li><span class="rank">6</span><div><h4>Level I Trauma Center</h4><p><b>Goals:</b> 1,000 treated, 4.0 stars, 2 working operating rooms, 80% of level 1 patients survive, 50 staff, accreditation 75.</p><p><b>Unlocks:</b> autopsy room, on-call rooms.</p></div></li>
+    <li><span class="rank">7</span><div><h4>Teaching Hospital</h4><p><b>Goals:</b> 4.2 stars, 3 specialty departments ready, an on-call room, 70 staff, accreditation 80.</p><p><b>Unlocks:</b> residents and students.</p></div></li>
+    <li><span class="rank">8</span><div><h4>World-renowned Medical Center</h4><p><b>Goals:</b> 4.5 stars, every specialty department ready, 30 profitable days in a row, 100 staff, accreditation 90.</p></div></li>
+  </ol>
+  <h3>Accreditation</h3>
+  <p>Accreditation is how much inspectors trust you. It starts at 70 and changes at an audit every 30 days. Good infection control raises it, and preventable deaths lower it. Keep rooms clean and patients alive.</p>
+  <h3>Reviews</h3>
+  <p>Patients rate their whole visit: the wait, a seat, a clean room, the price, and whether they got better. Staff say what it is like to work for you. Press <kbd>Shift</kbd>+<kbd>F</kbd> to read both. Staff reviews do not change your stars, but they warn you before people quit.</p>
+</section>
+
+<section id="world">
+  <h2>The town and the story</h2>
+  <ul>
+    <li><strong>Time.</strong> A game day lasts about an hour at normal speed. The calendar starts on today's real date.</li>
+    <li><strong>Seasons.</strong> Trees are green in spring and summer, turn in autumn and carry snow in winter. Halloween and Christmas decorations go up on their own.</li>
+    <li><strong>Weather.</strong> Some days bring rain, fog or a storm. A storm can cut the power. You can turn weather off in Settings.</li>
+    <li><strong>The town.</strong> Cars drive the streets, buses run four lines from 05:30 to 23:00, and people walk between their homes and the shops. Your patients and staff live here.</li>
+    <li><strong>The story.</strong> Old Town General's roof fell in, and yours is the last hospital in town. Medical Board News reports on you every morning, and letters arrive as you grow. Click the news strip to read them. The Letters window can read them to you.</li>
+    <li><strong>The admin computer.</strong> Sit at the Administrator Office desk in first person to use the hospital computer. It holds every window in one place: patients, records, staff, schedule, hiring, departments, money, prices, supplies, the Ladder, news, the medical library, letters and cleaning.</li>
+  </ul>
+</section>
+
+<section id="help">
+  <h2>When something goes wrong</h2>
+  <dl class="faq">
+    <dt>The Open the Doors button will not press.</dt>
+    <dd>The button says what is still missing. The usual causes are a room that is not finished, fewer than 2 waiting seats, no janitor, a missing core job, or a missing car park. You need all three: patient parking, staff parking and the ambulance bay.</dd>
+    <dt>I cannot hire a nurse.</dt>
+    <dd>Nurses need a working Triage room first. Click your Triage room and add whatever it says is missing. The same rule applies to every job: <em>"You need somewhere for them to work first"</em> means a room in that department is missing or unfinished.</dd>
+    <dt>My room says it is not working.</dt>
+    <dd>Click the room. Its panel says exactly what is wrong. The usual causes are a gap in the walls, no door, a piece of required furniture missing, or the room being too small. A room must also touch a hallway.</dd>
+    <dt>My room says "Missing", but the item is right there.</dt>
+    <dd>Check it is the right item. The room's list in the <span class="ui">ITEMS</span> tab shows the exact pieces that count. Desk-top items like computers must sit on the desk.</dd>
+    <dt>Patients keep getting sent away.</dt>
+    <dd>They are sicker than your rank allows. Climb the Ladder, and build an Emergency department at Community Hospital to keep level 1 and 2 patients.</dd>
+    <dt>Work has stopped and nobody is doing tests.</dt>
+    <dd>You have probably run out of supplies. Press <kbd>F3</kbd>, open Supplies, and buy more. Hire a Porter so deliveries reach the shelves quickly.</dd>
+    <dt>Nobody does surgery.</dt>
+    <dd>You need a working Operating Room, a doctor with the Surgery role and a doctor with the Anaesthesia role. Give doctors roles on their staff card. Surgery needs a 4-star doctor.</dd>
+    <dt>The game will not let me build upstairs.</dt>
+    <dd>Build the floor below first. Every upstairs tile also needs a floor or a pillar underneath, no more than two tiles away. People reach upstairs rooms by lift, so add one.</dd>
+    <dt>A car park will not go down.</dt>
+    <dd>Its driveway has to reach a street. Turn it with <kbd>R</kbd>, or move it closer to a road and away from traffic lights.</dd>
+    <dt>My staff are slow and grumpy.</dt>
+    <dd>Check they have a Staff Break Room and a Restroom. Hire enough people that nobody works alone, and look at their reviews with <kbd>Shift</kbd>+<kbd>F</kbd>.</dd>
+    <dt>Something else is broken.</dt>
+    <dd>Press <kbd>F8</kbd> and post the zip from your Desktop in #bug-reports on Discord, with a sentence about what happened. That is the fastest way to get it fixed.</dd>
+  </dl>
+</section>
+
+</main>
+</div>
+<footer>VitalCore Hospital is in alpha. Systems change often; this guide follows the current build.</footer>
+
+</body>
+</html>
