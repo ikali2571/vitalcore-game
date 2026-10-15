@@ -163,6 +163,7 @@ footer { max-width: 1180px; margin: 24px auto 0; color: var(--muted); font-size:
 <section id="first-hour">
   <h2>Your first hour</h2>
   <p>A new game puts you on an empty lot of grass with <strong>$150,000</strong>. Your hospital starts as an <strong>Urgent Care</strong>: a small walk-in clinic for mild cases. Your job is to build it, staff it and open the doors. These are the steps in order.</p>
+  <div class="note tip"><strong>The game teaches this too.</strong> A tutorial card at the top of the screen walks you through every step below, one at a time, and moves on by itself when you finish each one. It is on by default. You can switch it off on the New Game page, hide it with its <span class="ui">HIDE GUIDE</span> button, and bring it back with <kbd>Shift</kbd>+<kbd>F1</kbd>.</div>
   <div class="note tip"><strong>The quickest way to build.</strong> The checklist on screen has a <span class="ui">PLAN MY CLINIC</span> button that draws a complete starter clinic plan for you. The <span class="ui">ROOM KITS</span> tab in the build menu has ready-made rooms with walls, a door and all the furniture already inside. Using both, you can have a clinic standing in a few minutes.</div>
   <ol class="steps">
     <li><div><strong>Learn to move around</strong><kbd>W</kbd> <kbd>A</kbd> <kbd>S</kbd> <kbd>D</kbd> move the camera. Hold the middle mouse button and drag to turn and tilt. Roll the mouse wheel to zoom.</div></li>
@@ -171,7 +172,7 @@ footer { max-width: 1180px; margin: 24px auto 0; color: var(--muted); font-size:
     <li><div><strong>Give the hallway a way in</strong>Patients walk in from the street. Make sure your hallway or reception has a door to the outside, and that every room has a door onto the hallway.</div></li>
     <li><div><strong>Build three car parks</strong>Open the <span class="ui">OUTSIDE</span> tab and place a <em>Compact Patient Parking</em>, a <em>Compact Staff Parking</em> and a <em>Compact Ambulance Bay</em>. Turn each one with <kbd>R</kbd> so its driveway faces a street. The doors will not open without all three.</div></li>
     <li><div><strong>Hire your first staff</strong>Press <kbd>H</kbd>. A good first team is a Receptionist, two Nurses, a Doctor, a Physician Assistant, a Phlebotomist, a Lab Technician, a Janitor and a Porter. You can only hire nurses once the Triage room works, so build first and hire second.</div></li>
-    <li><div><strong>Buy supplies</strong>Press <kbd>F3</kbd> and open <span class="ui">Supplies</span>. The game does not order stock for you. Buy a few boxes of General and Lab supplies so your staff have something to work with. A truck brings them about two game hours later.</div></li>
+    <li><div><strong>Check your supplies</strong>Your Supply Room shelves start full. After that, the game never reorders for you. Press <kbd>F3</kbd> and open <span class="ui">Supplies</span> to see what is left and buy more. A truck brings them about two game hours later.</div></li>
     <li><div><strong>Open the doors</strong>Press <span class="ui">OPEN THE DOORS</span> under the clock at the bottom right. If it will not press, it tells you what is still missing. Patients start arriving and keep coming.</div></li>
     <li><div><strong>Watch your first patient</strong>Press <kbd>P</kbd> to see who is in the building. Follow them from reception to triage to the exam room and out the door. Your staff do all the work on their own. You only step in when you want to (see <a href="#take-over">Treating patients yourself</a>).</div></li>
     <li><div><strong>Climb the Ladder</strong>Click the rank badge at the top right. It lists what you must do to become a Small Clinic. When every box is ticked, press <span class="ui">REQUEST INSPECTION</span>. Each new rank unlocks new rooms, staff and patients.</div></li>
@@ -229,6 +230,7 @@ footer { max-width: 1180px; margin: 24px auto 0; color: var(--muted); font-size:
     <tr><td><kbd>V</kbd></td><td>Speech bubbles on or off</td></tr>
     <tr><td><kbd>F</kbd></td><td>Walk around in first person</td></tr>
     <tr><td><kbd>F5</kbd> / <kbd>F9</kbd></td><td>Quick save / quick load</td></tr>
+    <tr><td><kbd>Shift</kbd>+<kbd>F1</kbd></td><td>Show or hide the tutorial guide</td></tr>
     <tr><td><kbd>F8</kbd></td><td>Save a bug report to your Desktop</td></tr>
     <tr><td><kbd>F12</kbd></td><td>Screenshot</td></tr>
     <tr><td><kbd>Esc</kbd></td><td>Close the top window. With nothing open, it opens the pause menu.</td></tr>
@@ -558,7 +560,7 @@ footer { max-width: 1180px; margin: 24px auto 0; color: var(--muted); font-size:
   <ul>
     <li>There are five kinds of supplies: Lab, Imaging, Surgical, General and Food. Each box gives 10 uses.</li>
     <li>A truck delivers about two game hours after you order, and leaves the boxes at the door. A Porter carries them to the shelves. Without a porter, the driver does it more slowly.</li>
-    <li>Shelves in your Supply Room hold the stock. More shelves hold more boxes.</li>
+    <li>Shelves in your Supply Room hold the stock. They start full in a new hospital, and more shelves hold more boxes.</li>
     <li>Medicines are separate. With a Pharmacy and a Pharmacy Technician, the pharmacy hands them out and restocks itself from your cash.</li>
   </ul>
 </section>
