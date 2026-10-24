@@ -2,154 +2,110 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1">
-  <meta name="theme-color" content="#081317">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#f4f0e6">
   <meta name="google-site-verification" content="dPkNiEWGwj5PPYBAkTj7SoD_xoWhvpcWJ8rONcAm52Y">
-  <meta name="description" content="VitalCore Hospital is a deep healthcare institution simulator focused on building and operating a modern hospital campus.">
-  <meta property="og:title" content="VitalCore Hospital | Build the hospital. Shape the institution.">
-  <meta property="og:description" content="See the latest authentic VitalCore Hospital gameplay capture from Cedar Grove Hospital, with live operations, staffing, patient flow, and critical-care alerts.">
+  <meta name="description" content="Build and run a living hospital, then walk its corridors and treat patients yourself. Explore the VitalCore Hospital alpha, current Steam Playtest build, development screenshots and roadmap.">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="VitalCore Hospital">
+  <meta property="og:title" content="VitalCore Hospital | Build it. Run it. Treat the patients.">
+  <meta property="og:description" content="A hospital builder and doctor game. See authentic hospital and city captures, the latest Steam Playtest build and what is coming next.">
   <meta property="og:url" content="https://ikali2571.github.io/vitalcore-game/">
-  <meta property="og:image" content="https://ikali2571.github.io/vitalcore-game/assets/current-2026-10-14-gameplay-04.png">
-  <meta property="og:image:alt" content="Cedar Grove Hospital current night-operations gameplay capture">
+  <meta property="og:image" content="https://ikali2571.github.io/vitalcore-game/assets/dev-2026-10-23-hospital-dusk.png">
+  <meta property="og:image:alt" content="VitalCore Hospital and the surrounding city at dusk, captured in game">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="VitalCore Hospital | Deep hospital management simulation">
-  <meta name="twitter:description" content="See the latest authentic work-in-progress gameplay from Cedar Grove Hospital, captured October 14, 2026.">
-  <meta name="twitter:image" content="https://ikali2571.github.io/vitalcore-game/assets/current-2026-10-14-gameplay-04.png">
+  <meta name="twitter:title" content="VitalCore Hospital | Build it. Run it. Treat the patients.">
+  <meta name="twitter:description" content="Explore the hospital, the city and the latest Steam Playtest alpha.">
+  <meta name="twitter:image" content="https://ikali2571.github.io/vitalcore-game/assets/dev-2026-10-23-hospital-dusk.png">
   <link rel="canonical" href="https://ikali2571.github.io/vitalcore-game/">
   <link rel="sitemap" type="application/xml" href="sitemap.xml">
-  <title>VitalCore Hospital | Build the hospital. Shape the institution.</title>
   <link rel="icon" href="assets/vitalcore-icon.png">
-  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="home.css">
+  <title>VitalCore Hospital | Build it. Run it. Treat the patients.</title>
   <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "VideoGame",
-    "name": "VitalCore Hospital",
-    "url": "https://ikali2571.github.io/vitalcore-game/",
-    "description": "A deep low-poly hospital-management simulation focused on building, operating, and growing a modern healthcare institution.",
-    "image": "https://ikali2571.github.io/vitalcore-game/assets/current-2026-10-14-gameplay-04.png",
-    "genre": ["Simulation", "Management", "Strategy"],
-    "applicationCategory": "Game",
-    "gamePlatform": "PC",
-    "developmentStatus": "In development",
-    "author": {
-      "@type": "Organization",
-      "name": "VitalCore Studios"
-    },
-    "sameAs": [
-      "https://www.youtube.com/@VitalCoreHospital",
-      "https://www.tiktok.com/@vitalcore.hospita",
-      "https://ikali2571.itch.io/vitalcore",
-      "https://discord.gg/wJsszncrF6"
-    ]
-  }
+  {"@context":"https://schema.org","@type":"VideoGame","name":"VitalCore Hospital","url":"https://ikali2571.github.io/vitalcore-game/","description":"A hospital builder and doctor game where you run the hospital from above and treat patients in first person.","image":"https://ikali2571.github.io/vitalcore-game/assets/dev-2026-10-23-hospital-dusk.png","genre":["Simulation","Management","Medical Sim"],"gamePlatform":"PC","developmentStatus":"In development","author":{"@type":"Organization","name":"VitalCore Studios"},"sameAs":["https://store.steampowered.com/app/5342330/","https://www.youtube.com/@VitalCoreHospital","https://www.tiktok.com/@vitalcore.hospita","https://discord.gg/wJsszncrF6"]}
   </script>
 </head>
 <body>
-<header class="site-header">
-  <a class="brand" href="#top" aria-label="VitalCore Hospital home"><img src="assets/vitalcore-logo.png" alt=""><span>VitalCore Hospital<small>STUDIOS</small></span></a>
-  <button class="nav-toggle" aria-label="Open navigation" aria-expanded="false">&#9776;</button>
-  <nav class="nav" aria-label="Main navigation"><a href="#about">About</a><a href="#features">Systems</a><a href="#gameplay">Gameplay</a><a href="#progress">Progress</a><a href="#roadmap">Roadmap</a><a href="#community">Community</a><a href="guide.html">Player Guide</a><a href="alpha-key-milestone.html">Alpha Keys</a><a href="press-kit.html">Press Kit</a></nav>
-  <div class="header-actions"><a class="header-link" href="https://www.youtube.com/@VitalCoreHospital" target="_blank" rel="noreferrer">YouTube <span>&nearr;</span></a><a class="header-link" href="https://www.tiktok.com/@vitalcore.hospita" target="_blank" rel="noreferrer">TikTok <span>&nearr;</span></a><a class="header-link" href="https://discord.gg/wJsszncrF6" target="_blank" rel="noreferrer">Discord <span>&nearr;</span></a></div>
-</header>
+  <header class="site-header">
+    <a class="brand" href="#top" aria-label="VitalCore Hospital home"><img src="assets/vitalcore-icon.png" alt=""><span>VITAL<span class="brand-accent">CORE</span><small>HOSPITAL</small></span></a>
+    <nav aria-label="Main navigation"><a href="#play">The game</a><a href="#gallery">Screenshots</a><a href="#build">Latest build</a><a href="#roadmap">Roadmap</a></nav>
+    <a class="header-cta" href="https://store.steampowered.com/app/5342330/" target="_blank" rel="noopener noreferrer">Wishlist on Steam <span aria-hidden="true">↗</span></a>
+  </header>
 
-<main id="top">
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-visual-label" aria-label="Authentic VitalCore Hospital gameplay screenshot">
-      <span>REAL GAMEPLAY</span>
-      <strong>Alpha 0.9.186 &bull; Current Build</strong>
-      <small>Work in progress &bull; Latest media capture October 14, 2026</small>
-    </div>
-    <div class="hero-content">
-      <p class="eyebrow"><span class="status-dot"></span> DEEP HOSPITAL MANAGEMENT SIMULATION</p>
-      <h1>Build the hospital.<br><em>Shape the institution.</em></h1>
-      <p class="hero-lede">Design, operate, and expand a modern hospital campus. Coordinate patient care, staffing, surgery, critical care, specialties, teaching, research, finance, and long-term growth.</p>
-      <div class="actions"><a class="button primary" href="#features">Explore the systems <span>&rarr;</span></a><a class="button secondary" href="#progress">See the progress <span>&darr;</span></a></div>
-      <div class="hero-meta"><span><b>WEEKLY UPDATES</b> Website + Discord</span><span><i></i> One city. One hospital. Deep simulation.</span></div>
-    </div>
-    <div class="hero-stamp"><strong>100 &times; 100</strong><span>buildable campus</span><i></i><strong>600+</strong><span>build assets</span></div>
-  </section>
-
-  <section class="section milestone-callout" aria-labelledby="alpha-milestone-title">
-    <img src="assets/alpha-key-milestone-cover.jpg" alt="VitalCore Hospital community milestone announcement for ten alpha access keys" loading="lazy">
-    <div>
-      <p class="eyebrow">COMMUNITY MILESTONE / ENTRY NOT OPEN YET</p>
-      <h2 id="alpha-milestone-title">Ten alpha keys.<br><em>One community goal.</em></h2>
-      <p>VitalCore Hospital is in active alpha testing. When the community reaches both 1,000 Discord members and 1,000 TikTok followers, we will open a free giveaway for ten alpha access keys.</p>
-      <p class="milestone-note">No purchase necessary. Following or joining does not create an entry. Eligibility, entry dates, winner selection, and complete official rules will be published when entry opens.</p>
-      <div class="actions"><a class="button primary" href="alpha-key-milestone.html">Read the announcement <span>&rarr;</span></a><a class="button secondary" href="https://discord.gg/wJsszncrF6" target="_blank" rel="noreferrer">Join Discord <span>&nearr;</span></a><a class="button secondary" href="https://www.tiktok.com/@vitalcore.hospita" target="_blank" rel="noreferrer">Follow TikTok <span>&nearr;</span></a></div>
-    </div>
-  </section>
-
-  <section id="about" class="section intro split">
-    <div><p class="eyebrow">THE VISION</p><h2>More than a hospital tycoon.</h2><p>VitalCore Hospital is a healthcare institution simulator. Start with a single hospital campus, build every department, manage real operational pressure, and develop the organization into an advanced teaching and research center.</p><p>The Early Access focus is one city, one hospital campus, and a deep hospital-management loop. Multi-facility networks and a living city simulation are reserved for future expansion.</p></div>
-    <div class="catalog-panel">
-      <div class="catalog-topline"><span>CURRENT MEDIA / CEDAR GROVE HOSPITAL</span><b>REAL GAMEPLAY</b></div>
-      <figure class="gameplay-figure"><img src="assets/current-2026-10-14-gameplay-01.png" alt="Current Cedar Grove Hospital gameplay capture" loading="lazy"><figcaption>Fresh current-build gameplay from Cedar Grove Hospital, captured October 14, 2026.</figcaption></figure>
-      <div class="art-label"><span></span>Authentic in-game capture &bull; Work in progress</div>
-    </div>
-  </section>
-
-  <section id="features" class="section systems-section">
-    <div class="section-heading"><div><p class="eyebrow">CURRENT GAME SYSTEMS</p><h2>A connected hospital simulation.</h2></div><p>Every system creates pressure somewhere else. Build with intent, read the operation, and make the institution work as one living whole.</p></div>
-    <div class="feature-grid">
-      <article class="feature-card featured"><span class="card-index">01 / 08</span><div class="icon">+</div><h3>Build &amp; Design</h3><p>Construct floors, walls, rooms, doors, windows, utilities, furniture, ambulance access, and specialized clinical spaces.</p><a href="#community">Discuss the system <span>&rarr;</span></a></article>
-      <article class="feature-card"><span class="card-index">02 / 08</span><div class="icon">&bull;</div><h3>Clinical Operations</h3><p>Track patient flow, queues, staffing pressure, capacity blockers, emergency activity, inpatient care, and throughput.</p></article>
-      <article class="feature-card"><span class="card-index">03 / 08</span><div class="icon">+</div><h3>Surgery &amp; Critical Care</h3><p>Coordinate perioperative readiness, theatre scheduling, surgical execution, handoff, ICU requests, and step-down planning.</p></article>
-      <article class="feature-card"><span class="card-index">04 / 08</span><div class="icon">&times;</div><h3>Departments &amp; Specialties</h3><p>Develop diagnostic, treatment, ward, surgery, ICU, specialty, administrative, and support service lines.</p></article>
-      <article class="feature-card"><span class="card-index">05 / 08</span><div class="icon">$</div><h3>Hospital Economy</h3><p>Monitor payroll, operating pressure, billing, reimbursement, affordability, inventory, quality, reputation, and growth.</p></article>
-      <article class="feature-card"><span class="card-index">06 / 08</span><div class="icon">&loz;</div><h3>Teaching &amp; Research</h3><p>Build academic capacity, project learner cohorts and rotations, evaluate accreditation, and develop research.</p></article>
-      <article class="feature-card"><span class="card-index">07 / 08</span><div class="icon">&infin;</div><h3>Longitudinal Care</h3><p>Support returning patients, chronic conditions, medications, referrals, recovery assessment, and longitudinal history.</p></article>
-      <article class="feature-card"><span class="card-index">08 / 08</span><div class="icon">&larrhk;</div><h3>Reliable Construction</h3><p>Use searchable catalogs, placement feedback, persistent tools, authoritative undo history, and save/load support.</p></article>
-    </div>
-  </section>
-
-  <section class="section showcase">
-    <div class="showcase-copy"><p class="eyebrow">BUILD MODE</p><h2>Design every part of the campus.</h2><p>Browse categorized rooms, structures, furniture, utilities, and access infrastructure through visual cards with thumbnails, search, costs, requirements, and diagnostics.</p><ul><li>Full 100 &times; 100 buildable hospital property</li><li>Single, double, and composite door systems</li><li>Room drawing and designation workflows</li><li>Hundreds of catalogued furnishings and equipment assets</li><li>Undo support across core construction actions</li></ul></div>
-    <div class="asset-stage">
-      <div class="stage-header"><span>CURRENT MEDIA / LIVE OPERATIONS</span><b>REAL GAMEPLAY</b></div>
-      <figure class="gameplay-figure stage-figure"><img src="assets/current-2026-10-14-live.png" alt="Current live city and hospital-management view" loading="lazy"><figcaption>Live city and hospital-management presentation from the current work-in-progress build.</figcaption></figure>
-      <span class="media-caption">AUTHENTIC GAMEPLAY &bull; WORK IN PROGRESS</span>
-    </div>
-  </section>
-
-  <section id="gameplay" class="section media-section">
-    <div class="section-heading"><div><p class="eyebrow">AUTHENTIC GAMEPLAY</p><h2>Inside the current<br><em>Cedar Grove build.</em></h2></div><p>This October 14 capture shows Cedar Grove Hospital at night with live operations, patient flow, critical-patient alerts, staffing, finances, departments, and the news feed visible. Every image here is authentic work-in-progress gameplay.</p></div>
-    <div class="media-layout">
-      <figure class="reel-card">
-        <video class="youtube-embed" controls playsinline preload="metadata" poster="assets/current-2026-10-14-gameplay-04.png"><source src="assets/current-2026-10-14-gameplay-16s.mp4" type="video/mp4"></video>
-        <figcaption><span>OCTOBER 14, 2026 &bull; CURRENT MEDIA CAPTURE</span><strong>Cedar Grove Hospital at night</strong><small>Sixteen seconds of authentic current-build gameplay showing live hospital operations and the management HUD.</small><a href="assets/current-2026-10-14-gameplay-16s.mp4" download>Download the current gameplay clip <span>&darr;</span></a></figcaption>
-      </figure>
-      <div class="media-stills">
-        <figure><img src="assets/current-2026-10-14-gameplay-01.png" alt="Current VitalCore Hospital gameplay frame from Cedar Grove Hospital" loading="lazy"><figcaption><span>CURRENT CAPTURE</span><strong>Cedar Grove operations.</strong><small>Authentic current-build gameplay from the hospital-management loop.</small></figcaption></figure>
-        <figure><img src="assets/current-2026-10-14-gameplay-02.png" alt="Current VitalCore Hospital gameplay frame" loading="lazy"><figcaption><span>CURRENT CAPTURE</span><strong>Hospital systems in motion.</strong><small>Fresh gameplay media captured October 14, 2026.</small></figcaption></figure>
-        <figure><img src="assets/current-2026-10-14-gameplay-03.png" alt="Current VitalCore Hospital gameplay frame" loading="lazy"><figcaption><span>CURRENT CAPTURE</span><strong>Staff and patient flow.</strong><small>Work-in-progress systems shown as they run in the current build.</small></figcaption></figure>
-        <figure><img src="assets/current-2026-10-14-gameplay-04.png" alt="Cedar Grove Hospital at night with the operations HUD and critical-patient alert" loading="lazy"><figcaption><span>CURRENT CAPTURE</span><strong>Night operations.</strong><small>HUD, critical-patient alert, departments, staffing, finances, and news feed visible.</small></figcaption></figure>
-        <figure><img src="assets/current-2026-10-14-live.png" alt="Current live city and hospital-management view" loading="lazy"><figcaption><span>CURRENT CAPTURE</span><strong>Live city context.</strong><small>Current work-in-progress presentation from the connected hospital simulation.</small></figcaption></figure>
-        <div class="social-card"><span>FOLLOW DEVELOPMENT</span><h3>See every verified update.</h3><p>Gameplay progress, feature spotlights, development updates, and community questions are posted throughout the week.</p><div class="social-actions"><a class="button primary" href="https://www.tiktok.com/@vitalcore.hospita" target="_blank" rel="noreferrer">Follow on TikTok <span>&nearr;</span></a><a class="button secondary" href="https://ikali2571.itch.io/vitalcore/devlog/1638727/alpha-0744-walkthrough-new-onboarding-site-selection-and-hospital-detail" target="_blank" rel="noreferrer">Read the devlog <span>&nearr;</span></a></div></div>
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="signal" aria-hidden="true"></span> STEAM PLAYTEST ALPHA · ACTIVE DEVELOPMENT</p>
+        <h1 id="hero-title">Build the hospital.<br><em>Step inside it.</em></h1>
+        <p class="lead">Design and run a living hospital from above. Then walk its corridors in first person, examine patients, read their charts and make the call yourself.</p>
+        <div class="actions">
+          <a class="button primary" href="https://store.steampowered.com/app/5342330/" target="_blank" rel="noopener noreferrer">Wishlist VitalCore Hospital <span aria-hidden="true">↗</span></a>
+          <a class="button secondary" href="#gallery">See the game <span aria-hidden="true">↓</span></a>
+        </div>
+        <p class="hero-note">Alpha access is through Steam Playtest. Join the Discord to apply as a tester.</p>
       </div>
+      <figure class="hero-shot">
+        <img src="assets/dev-2026-10-23-hospital-dusk.png" alt="In-game view of the hospital and city streets at dusk" fetchpriority="high">
+        <figcaption><span>01 / HOSPITAL &amp; CITY</span><span>Development capture · Oct 23, 2026</span></figcaption>
+      </figure>
+      <div class="hero-corner" aria-hidden="true">VC / 01</div>
+    </section>
+
+    <div class="status-bar" aria-label="Development status">
+      <div><span class="status-label">LIVE ON STEAM PLAYTEST</span><strong>Alpha 0.9.199</strong><small>Build 26163607 · Oct 23, 2026</small></div>
+      <div><span class="status-label">THE VIEW</span><strong>Top down + first person</strong><small>Build the rooms. Treat the patients.</small></div>
+      <div><span class="status-label">THE SETTING</span><strong>One living city</strong><small>Homes, traffic, buses and seasons</small></div>
     </div>
-  </section>
 
-  <section id="progress" class="section dark progress-section">
-    <div class="section-heading"><div><p class="eyebrow">DEVELOPMENT PROGRESS / OCTOBER 16, 2026</p><h2>Work it out<br><em>yourself.</em></h2></div><p>Alpha 0.9.186 is live on Steam for alpha testers &mdash; apply on Discord for a key. New in 0.9.186: people come alive &mdash; staff and patients yawn, stretch and shift on their feet while they wait, talk with their hands while they speak, and each does a job in one of several ways, so a busy ward no longer moves in step; women walk and run with their own stride; a patient who collapses lies still on the floor until help comes, and the nurse kneels beside them for chest compressions; nobody slides across the floor lying down any more; in build mode a blue arrow shows which way a piece faces, and carrying a chair or a screen near a desk points out the desk&rsquo;s free spots; a desk chair turned to its desk is no longer shown as out of reach; and searching inside a room&rsquo;s build list searches that room first. New in 0.9.185: a tutorial that walks you through your first clinic and your first patients, and a full <a href="guide.html">player guide</a>; people sit down, stand up and get on and off exam tables instead of popping into place; lifts work above the ground floor, with walls and doors built on the floor you are building on; people walking home head off down the street. New in 0.9.184: surgery works end to end &mdash; the patient is brought to the operating table, the team gathers round it and the patient recovers afterwards; people leave the way they came, by their own car, a car that comes to pick them up, or the bus; hover a member of staff to see what they are doing; and a long list of tester fixes, from the triage table to the waiting benches. New in 0.9.183: patients sent on to a bigger hospital leave by ambulance &mdash; lights and siren, a crew that wheels the gurney out, lowers it to load them and wheels them aboard; surgery is its own department, like Project Hospital, once you have an operating room, a surgeon and an anaesthetist; walkways in five surfaces on the OUTSIDE shelf; buses pull into bus bays; prices on every build card; room pins carry the room&rsquo;s name; plants and pictures calm waiting patients. New in 0.9.182: the alert bar drops down to each alert and jumps the camera to it. New in 0.9.181: rooms that are not finished glow amber until they work. New in 0.9.180: staff walk the last step to the bedside instead of sliding. New in 0.9.179: mild walk-ins skip the front desk and go straight to the waiting room. New in 0.9.178: the reception screen stands to the receptionist&rsquo;s side so the lobby sees her. New in 0.9.177: reception counters sit lower so the receptionist works at desk height. New in 0.9.176: families &mdash; relatives of earlier patients arrive with the same surname, the same home and their family history on the chart. New in 0.9.175: holiday pieces at the hospital entrance stand clear of the canopy and draw whole. New in 0.9.174: a waiting room on every floor &mdash; patients bound upstairs wait upstairs, and a floor with clinic rooms but no waiting room is pointed out. New in 0.9.173: parents waiting for a child in a scanner or the lab take a chair in that department&rsquo;s waiting room. New in 0.9.172: department waiting rooms the Project Hospital way &mdash; patients sent for a scan wait in radiology&rsquo;s room and bloods in the lab&rsquo;s, and a small waiting room beside a department&rsquo;s rooms is that department&rsquo;s on its own. New in 0.9.171: returning patients bring their allergies and earlier diagnoses with them, and a condition that comes back in life is often why they are back; parents wait outside the scanners, the lab and the staff rooms instead of following their child in. New in 0.9.170: patients come back over their lives &mdash; older by a year for every hospital day away, with a complaint that fits their age, and their chart remembers the earlier visits. New in 0.9.169: the town dresses up for the holidays &mdash; pumpkins and gravestones outside homes from 18 October, Christmas trees and snowmen in December &mdash; staff pull their chairs in to the computer, and bench-top lab machines go on the benches. New in 0.9.168: the city lights up at night &mdash; glowing windows, street lamps down every street, cars with their headlights and tail lights on &mdash; and a new sky with a moving sun, drifting clouds that turn pink at sunset, stars, and the moon in its real phase. New in 0.9.167: rooms hold what a real hospital room would &mdash; each room&rsquo;s build list offers only what belongs there, the MRI room takes nothing metal, the ICU needs a defibrillator and crash cart, and all 28 ready-made rooms were rearranged by hand; the CT and MRI scanners show their right models. 0.9.166 fixed a new game started after loading a hospital. New in 0.9.163 to 0.9.165: the clock shows a real date, and the seasons follow it &mdash; trees on the grounds, along the streets and in the forest turn with the calendar; a suburb of family houses rings the town; every patient and member of staff has a home address and drives home to their own driveway or the car park by their flats; four city bus lines with stops all over town, which patients and staff ride to work and home again; children arrive with a parent, and family visit patients on the wards; and cars and buses speed up when you speed up the game. New in 0.9.160 to 0.9.162: the grounds &mdash; trees with autumn and winter looks, shrubs, hedges, flower beds, benches and street lamps that light at night; rebuilt room kits with eleven new room types; one double door instead of two, and far fewer windows; triage weighs and measures patients on the scales; vending machines that sell snacks, with a short line when busy; and staff chatting on their breaks. New in 0.9.111 to 0.9.159: blood on the floor from bleeding patients that the janitor cleans; diagnosis is a puzzle now &mdash; each test reveals only what it can show, illnesses that no longer fit are ruled out, and a wrong final call makes the patient worse until you look again; the Care Desk lays out four columns on the tablet, shows the presenting complaint, flags what is off in the results, lets you consult a colleague and gives the usual medicine and a take-home prescription; nurses place a cannula before an IV and the bag drains on the pole; monitors show patients getting better or worse live; a trauma alert with a crash cart when someone crashes; speech bubbles above heads; staff take breaks and sit down for them; desk chairs roll out; a UI size slider; a lift room joins the storeys; and a long list of tester fixes &mdash; stuck blood work, lost exam tables, patients kept overnight, cars piling up, invisible patients. The cafeteria kitchen now uses a pack that matches the hospital&rsquo;s look. From 0.9.110: triage takes the first vitals on the triage table, vitals match the illness, the chart names real medicines and reads like a real chart, doctors print prescriptions, and rooms get visibly dirty until a janitor cleans them. From 0.9.109: the game has a story, &ldquo;The Last Hospital in Town&rdquo;, told in news reports and letters and read aloud, with a new chapter at every rank. From 0.9.108: loading a save puts every patient back where they were, with their illness, triage level and allergies. From 0.9.107: you can sit at the admin desk again when its computer stands at the back of the desk. From 0.9.103 to 0.9.106: restocking a pharmacy medicine now costs a little money, nurses give medicines from the cabinets when the pharmacy technician is off shift, a patient resting between check-ups is no longer shown as stuck, and a few medicine course lengths were corrected against NHS advice. From 0.9.100 to 0.9.102: reception no longer loses a patient&rsquo;s turn while they walk in, medicine orders name the real medicine and a pharmacy keeps a shelf of each one, and 28 more illnesses show their usual first medicine. From 0.9.99: a car park that sat at a traffic light is moved along the street for you, and a hospital with no pharmacy technician now gives medicines properly. From 0.9.98: you place your own car parks before the first opening, and a driveway can no longer join the street at a traffic light; doors are easier to walk through in first person; and a new game no longer keeps wall pieces from the last hospital. From 0.9.96: patients can have allergies, and the game holds an unsafe medicine until a doctor chooses another one; patient records now say why someone was sent to a bigger hospital and what treatment they need, and the family&rsquo;s public review costs you reputation; triage calls patients in turn when a nurse and a triage room are free; and supplies can no longer be over-ordered. Many tester reports were fixed too. In 0.9.74 you could already build an Administrator Office, sit at its desk in first person, and run the hospital from its computer: patients, staff, hiring, money, prices, supplies and the news. Rooms now say when they are ready, new hospitals no longer ask you to open the doors too early, and the city streets are busier and no longer jam. Since 0.9.72: name your hospital, a cafeteria with a kitchen, supplies you can see, staff and patients who drive in from the city, and real-sized cars. Next up: screens that come alive, a body in first person, and a big speed sweep.</p></div>
-    <div class="progress-layout"><div class="progress-grid"><div><strong>Hospital construction</strong><span class="done">Complete</span></div><div><strong>Build UI &amp; catalogs</strong><span class="done">Complete</span></div><div><strong>Operations Board</strong><span class="done">Complete</span></div><div><strong>Surgery &amp; ICU</strong><span class="done">Complete</span></div><div><strong>Finance &amp; inventory</strong><span class="done">Complete</span></div><div><strong>Specialty services</strong><span class="done">Complete</span></div><div><strong>Teaching &amp; research</strong><span class="done">Complete</span></div><div><strong>Blank-site hospital building</strong><span class="done">Implemented</span></div><div><strong>Patient intake &amp; clinical flow</strong><span class="active">In progress</span></div><div><strong>Navigation &amp; access systems</strong><span class="active">In progress</span></div><div><strong>Emergency Department UI</strong><span class="active">In progress</span></div><div><strong>Alpha stabilization</strong><span class="active">In progress</span></div></div><aside class="focus-panel"><span>CURRENT FOCUS</span><h3>Validate the connected hospital.</h3><ul><li>Reception throughput and patient registration</li><li>Arrival zones for player-built entrances</li><li>Diagnostic equipment posture and surface alignment</li><li>Department management UI and hand-built hospital validation</li></ul></aside></div>
-    <div class="quality-strip"><div><b>5</b><span>Selectable hospital sites</span></div><div><b>100 &times; 100</b><span>Buildable campus</span></div><div><b>600+</b><span>Catalogued build assets</span></div><div><b>&lt;300</b><span>Production-script line limit</span></div></div>
-  </section>
+    <section id="play" class="section play-section">
+      <div class="section-heading"><div><p class="eyebrow">THE GAME TODAY</p><h2>One hospital.<br><em>Many decisions.</em></h2></div><p>VitalCore Hospital combines the builder, the administrator and the doctor in the same playable hospital. These are systems present in the alpha, with balancing and polish still in progress.</p></div>
+      <div class="system-grid">
+        <article><span class="system-number">01 / BUILD</span><h3>Make a place that works.</h3><p>Draw rooms and floors, place equipment, connect storeys with lifts, build paths and parking, or begin with a staffed, ready hospital.</p></article>
+        <article><span class="system-number">02 / RUN</span><h3>Keep care moving.</h3><p>Hire and schedule staff, manage beds and supplies, watch patient flow and finances, and respond when cases turn urgent.</p></article>
+        <article><span class="system-number">03 / TREAT</span><h3>Take a patient yourself.</h3><p>Walk in first person, interview and examine patients with clinical tools, order tests, read results, diagnose and decide on treatment.</p></article>
+      </div>
+      <div class="world-note"><span>THE WORLD BEYOND THE DOOR</span><p>Patients and staff come from a connected city with homes, cars, bus routes, a day and night cycle, weather and changing seasons. The gallery below includes whole-city development views.</p></div>
+    </section>
 
-  <section id="roadmap" class="section roadmap-section">
-    <div class="section-heading"><p class="eyebrow">EARLY ACCESS ROADMAP</p><h2>Polish the hospital<br><em>before expanding the world.</em></h2></div>
-    <div class="timeline"><article class="current"><span>NOW</span><h3>Core Stabilization</h3><p>Navigation verification, ceiling-light placement, construction regression testing, save management, and long-session reliability.</p></article><article><span>NEXT</span><h3>Player Experience</h3><p>Main menu polish, save deletion, onboarding, starter scenarios, clearer feedback, and UI consistency.</p></article><article><span>RELEASE HARDENING</span><h3>Performance &amp; Quality</h3><p>Large-hospital profiling, long-session testing, visual acceptance, bug triage, and scope freeze.</p></article><article><span>POST-EARLY ACCESS</span><h3>Healthcare Network</h3><p>Multiple facilities, patient transfers, shared specialists, EMS systems, air medical transport, and a deeper living-city ecosystem.</p></article></div>
-  </section>
+    <section id="gallery" class="section gallery-section">
+      <div class="section-heading"><div><p class="eyebrow">IN-GAME MEDIA / OCTOBER 23, 2026</p><h2>A look at<br><em>Cedar Grove.</em></h2></div><p>Direct captures from a development build. These images show recent city and environment work; the live Steam Playtest build is identified separately above. Visuals are still being refined.</p></div>
+      <div class="gallery-grid">
+        <figure class="gallery-card gallery-large"><a href="assets/dev-2026-10-23-hospital-dusk.png" target="_blank"><img src="assets/dev-2026-10-23-hospital-dusk.png" alt="Hospital cutaway and city streets at dusk" loading="lazy"></a><figcaption><b>01 / DUSK SHIFT</b><span>A look inside the hospital as the city lights come on.</span></figcaption></figure>
+        <figure class="gallery-card"><a href="assets/dev-2026-10-23-hospital-day.png" target="_blank"><img src="assets/dev-2026-10-23-hospital-day.png" alt="Hospital building, car parks and city blocks in daylight" loading="lazy"></a><figcaption><b>02 / DAYLIGHT</b><span>The hospital site and the neighborhood around it.</span></figcaption></figure>
+        <figure class="gallery-card"><a href="assets/dev-2026-10-23-hospital-night.png" target="_blank"><img src="assets/dev-2026-10-23-hospital-night.png" alt="Hospital, planted grounds and lit city windows at night" loading="lazy"></a><figcaption><b>03 / NIGHT SHIFT</b><span>Lighting, streets and new ground detail after dark.</span></figcaption></figure>
+        <figure class="gallery-card gallery-wide"><a href="assets/dev-2026-10-23-city-aerial-2.png" target="_blank"><img src="assets/dev-2026-10-23-city-aerial-2.png" alt="Wide aerial view of the entire connected city and surrounding forest" loading="lazy"></a><figcaption><b>04 / THE WHOLE CITY</b><span>The full city footprint, seen from above.</span></figcaption></figure>
+        <figure class="gallery-card gallery-wide"><a href="assets/dev-2026-10-23-city-aerial.png" target="_blank"><img src="assets/dev-2026-10-23-city-aerial.png" alt="Second whole-city aerial view with streets, districts and tree cover" loading="lazy"></a><figcaption><b>05 / CITY FROM ABOVE</b><span>A second angle on the city, districts and outskirts.</span></figcaption></figure>
+      </div>
+      <p class="gallery-disclaimer">Captured in game · Work in progress · Screenshot quality reflects the current development render.</p>
+    </section>
 
-  <section class="section faq"><p class="eyebrow">FAQ</p><h2>About VitalCore Hospital.</h2><div class="faq-list"><details><summary>What kind of game is VitalCore Hospital?</summary><p>A deep hospital-management and healthcare-institution simulator combining construction, clinical operations, administration, academic medicine, research, and strategic growth.</p></details><details><summary>What is the Early Access scope?</summary><p>One city, one fully buildable hospital campus, and a deep single-hospital simulation. Multi-hospital and living-city systems are reserved for later development.</p></details><details><summary>Are these real game screenshots?</summary><p>Yes. Images labeled real gameplay were captured directly from the current low-poly VitalCore Hospital build. Development visuals, interface elements, balance, animation, and layouts may change.</p></details><details><summary>Where will updates be posted?</summary><p>VitalCore Hospital development updates are published weekly on this website, Steam, and Discord. Authentic gameplay videos are posted on YouTube, with shorter clips and development posts on TikTok.</p></details></div></section>
+    <section id="build" class="section build-section">
+      <div class="section-heading"><div><p class="eyebrow">CURRENT STEAM PLAYTEST BUILD</p><h2>Alpha 0.9.199<br><em>is live.</em></h2></div><p>Build 26163607 was pushed on October 23. It includes a hotfix for the staff recovery check and makes the light-theme build tray easier to read. Recent alpha updates also expanded the first-person clinical view and hospital operations.</p></div>
+      <div class="build-grid">
+        <article><span>0.9.199 / HOTFIX</span><h3>Steadier sessions</h3><p>Fixed a recurring exception in the floating-staff recovery check. The build tray now hides redundant ceiling-light items and uses readable icon colors on the light Ward theme.</p></article>
+        <article><span>0.9.198 / CLINICAL</span><h3>More to diagnose</h3><p>Six additional ear and throat conditions, updated scope views, new symptoms and treatments, and localized text across ten languages.</p></article>
+        <article><span>0.9.197 / OPERATIONS</span><h3>A hospital with more life</h3><p>Sick leave, overtime, shift handovers, early warning scores, observation and medicine rounds, bed tracking, equipment wear and utility costs. Some ward flows remain in active verification.</p></article>
+      </div>
+      <a class="text-link" href="https://store.steampowered.com/app/5342330/" target="_blank" rel="noopener noreferrer">View the Steam store and wishlist the game <span aria-hidden="true">↗</span></a>
+    </section>
 
-  <section id="community" class="section cta"><img src="assets/vitalcore-icon.png" alt="VitalCore Hospital icon"><div><p class="eyebrow">JOIN THE JOURNEY</p><h2>Help shape VitalCore Hospital.</h2><p>Follow development, share feedback, report issues, and watch VitalCore Hospital grow from a hospital simulator into a complete healthcare institution experience. Weekly updates will be shared on this website and in the VitalCore Hospital Discord community.</p><p><strong>Interested in alpha testing?</strong> Join the Discord and post in <strong>#alpha-test-applicants</strong> to apply.</p></div><div class="cta-actions"><a class="button primary" href="https://discord.com/channels/1513014614647115817/1560012216130871366" target="_blank" rel="noreferrer">Apply for alpha testing <span>&nearr;</span></a><a class="button secondary" href="https://discord.gg/wJsszncrF6" target="_blank" rel="noreferrer">Join the Discord <span>&nearr;</span></a><a class="button secondary" href="https://www.youtube.com/@VitalCoreHospital" target="_blank" rel="noreferrer">Watch on YouTube <span>&nearr;</span></a><a class="button secondary" href="https://www.tiktok.com/@vitalcore.hospita" target="_blank" rel="noreferrer">Follow on TikTok <span>&nearr;</span></a><a class="button secondary" href="https://ikali2571.itch.io/vitalcore" target="_blank" rel="noreferrer">Follow on itch.io <span>&nearr;</span></a><a class="button secondary" href="press-kit.html">Press &amp; creator kit <span>&rarr;</span></a></div></section>
-</main>
-<footer class="site-footer"><div><img src="assets/vitalcore-logo.png" alt=""><span>VitalCore Studios</span></div><p>&copy; <span id="year"></span> VitalCore Studios. Features and visuals may change.</p><span class="footer-status"><i></i> In active development</span></footer>
-<script src="script.js"></script>
+    <section id="roadmap" class="section roadmap-section">
+      <div class="section-heading"><div><p class="eyebrow">DEVELOPMENT ROADMAP</p><h2>What comes<br><em>next.</em></h2></div><p>This is the current direction, not a promise of release dates. The December 2026 target in the project roadmap is a focused, polished demo slice, not the complete hospital simulation.</p></div>
+      <div class="roadmap-grid">
+        <article><span>NOW / ALPHA</span><h3>Tester fixes &amp; first-person polish</h3><p>Work through reports, improve the chart’s exam and interview pages, and make completed lab and imaging results easier to notice.</p></article>
+        <article><span>NEXT / VALIDATION</span><h3>Verify the full care loop</h3><p>Hand-play inpatient beds and doctor rounds, tighten the morgue kit, improve build feedback and check longer sessions across different hospitals.</p></article>
+        <article><span>PLANNED / DEMO</span><h3>A focused first shift</h3><p>A small clinic, patient admissions and visible staff work in a guided twenty to thirty minute scenario. The project roadmap targets December 2026 for this demo.</p></article>
+        <article><span>LATER / EXPANSION</span><h3>More ways to practice</h3><p>Additional specialties, maternity, disease outbreaks and deeper hospital systems are planned beyond the current alpha. Scope and timing may change.</p></article>
+      </div>
+    </section>
+
+    <section id="community" class="community-section">
+      <div><p class="eyebrow">HELP SHAPE THE HOSPITAL</p><h2>Come in for the next shift.</h2><p>Wishlist the game, apply for the Steam Playtest through Discord, and send feedback or F8 bug reports as the alpha grows.</p></div>
+      <div class="community-actions"><a class="button primary" href="https://store.steampowered.com/app/5342330/" target="_blank" rel="noopener noreferrer">Wishlist on Steam <span aria-hidden="true">↗</span></a><a class="button secondary" href="https://discord.gg/wJsszncrF6" target="_blank" rel="noopener noreferrer">Join Discord <span aria-hidden="true">↗</span></a></div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><span>© 2026 VitalCore Studios · In active development</span><div><a href="guide.html">Player guide</a><a href="press-kit.html">Press kit</a><a href="https://www.youtube.com/@VitalCoreHospital" target="_blank" rel="noopener noreferrer">YouTube</a><a href="https://www.tiktok.com/@vitalcore.hospita" target="_blank" rel="noopener noreferrer">TikTok</a></div></footer>
 </body>
 </html>
