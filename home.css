@@ -92,6 +92,7 @@ h1 em,h2 em{font-style:normal;color:var(--teal)}
 
 .gameplay-video{margin:0 0 24px;background:var(--paper-light);border:1px solid var(--line)}
 .gameplay-video video{display:block;width:100%;aspect-ratio:16/9;background:#132e30}
+.gameplay-video .full-tour{display:block;width:100%;aspect-ratio:16/9;border:0;background:#132e30}
 .gameplay-video figcaption{padding:16px 20px;color:var(--muted);font-size:12px}
 .support-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
 .support-grid article{padding:28px;border:1px solid var(--line);background:var(--paper-light);border-top:4px solid var(--teal)}
