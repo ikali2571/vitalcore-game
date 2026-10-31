@@ -1,0 +1,234 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#08131d">
+  <title>Roadmap | VitalCore Hospital</title>
+  <meta name="description" content="The VitalCore Hospital roadmap: what is in the alpha now, what is being built, the road to the beta and the December 2026 demo, and what is planned for Early Access.">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="VitalCore Hospital">
+  <meta property="og:title" content="VitalCore Hospital Roadmap">
+  <meta property="og:description" content="What is in the alpha now, what is being built next, the road to the demo, and the eight stages from Urgent Care to World-Renowned Medical Center.">
+  <meta property="og:url" content="https://ikali2571.github.io/vitalcore-game/roadmap.html">
+  <meta property="og:image" content="https://ikali2571.github.io/vitalcore-game/assets/roadmap/night.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:image" content="https://ikali2571.github.io/vitalcore-game/assets/roadmap/night.jpg">
+  <link rel="canonical" href="https://ikali2571.github.io/vitalcore-game/roadmap.html">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Source+Sans+3:wght@400;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: game-style roadmap - key-art hero with the logo, then a milestone track of four columns of picture cards, the Ladder as a strip, a call-to-action band. One committed dark look, like the game's night-shift UI. */
+:root {
+  --bg: #08131d;
+  --panel: #0f1f2c;
+  --panel-2: #132838;
+  --line: #1f3a50;
+  --fg: #eaf3f8;
+  --muted: #95abbe;
+  --mint: #8ef0d0;
+  --cyan: #4fd6ea;
+  --done: #5fd39a;
+  --dev: #f0b44c;
+  --next: #4fd6ea;
+  --plan: #a9adf5;
+  --display: "Sora", "Segoe UI", system-ui, sans-serif;
+  --body: "Source Sans 3", "Segoe UI", system-ui, sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, Consolas, monospace;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+.topbar { position: absolute; top: 0; left: 0; right: 0; z-index: 3; padding-top: 16px; }
+.hero .topbar .inner { padding-block: 0; display: block; }
+.topbar a { display: inline-block; font: 700 13px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg); text-decoration: none; background: rgba(8,19,29,0.6); border: 1px solid var(--line); padding: 9px 12px; border-radius: 6px; }
+.topbar a:hover { border-color: var(--mint); color: var(--mint); }
+body { background: var(--bg); color: var(--fg); font: 400 16px/1.55 var(--body); }
+img { display: block; max-width: 100%; }
+h1, h2, h3 { font-family: var(--display); margin: 0; text-wrap: balance; }
+p { margin: 0; }
+.gutter { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+.inner { max-width: 1240px; margin: 0 auto; }
+
+/* Hero */
+.hero { position: relative; overflow: hidden; background: #0b1a26; }
+.hero img.art { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; object-position: 50% 45%; }
+.hero::after { content: ""; position: absolute; inset: 0; background:
+  linear-gradient(180deg, rgba(8,19,29,0.35) 0%, rgba(8,19,29,0.15) 35%, rgba(8,19,29,0.85) 80%, var(--bg) 100%),
+  linear-gradient(90deg, rgba(8,19,29,0.75) 0%, rgba(8,19,29,0) 60%); }
+.hero .inner { position: relative; z-index: 1; padding-block: clamp(72px, 14vw, 170px) 40px; display: grid; gap: 18px; }
+.logo { display: grid; gap: 0; justify-items: start; }
+.logo .word { font: 800 clamp(48px, 10vw, 112px)/0.92 var(--display); letter-spacing: -0.03em; color: #eef6f2; text-shadow: 5px 5px 0 #4b5552, 0 10px 40px rgba(0,0,0,0.45); }
+.logo .sub { font: 600 clamp(15px, 2.6vw, 26px)/1 var(--display); letter-spacing: 0.55em; color: var(--mint); margin-top: 10px; padding-left: 4px; text-shadow: 0 2px 12px rgba(0,0,0,0.6); }
+.ribbon { display: inline-flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+.ribbon .title { font: 800 clamp(22px, 3.6vw, 34px)/1 var(--display); letter-spacing: 0.12em; text-transform: uppercase; background: var(--mint); color: #062018; padding: 10px 16px 8px; border-radius: 6px; transform: skewX(-8deg); box-shadow: 0 8px 24px rgba(0,0,0,0.35); }
+.ribbon .title span { display: inline-block; transform: skewX(8deg); }
+.ribbon .when { font: 700 13px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: var(--fg); background: rgba(8,19,29,0.7); border: 1px solid var(--line); padding: 9px 12px; border-radius: 6px; }
+.hero p.lede { max-width: 56ch; font-size: 18px; color: #d7e5ee; text-shadow: 0 2px 10px rgba(0,0,0,0.7); }
+
+/* Milestone track */
+.track-wrap { padding-block: 24px 8px; }
+.track { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 18px; }
+.col { display: grid; gap: 14px; align-content: start; min-width: 0; }
+.col-head { position: relative; display: grid; gap: 6px; padding-top: 30px; }
+.col-head::before { content: ""; position: absolute; top: 10px; left: 0; right: -18px; height: 4px; border-radius: 2px; background: var(--line); }
+.col:last-child .col-head::before { right: 0; }
+.col-head .node { position: absolute; top: 0; left: 0; width: 24px; height: 24px; border-radius: 50%; display: grid; place-items: center; font: 700 13px/1 var(--mono); color: #06141d; background: var(--c); box-shadow: 0 0 0 5px var(--bg), 0 0 18px var(--c); z-index: 1; }
+.col.done .col-head::before { background: var(--done); }
+.col.dev .col-head::before { background: linear-gradient(90deg, var(--dev) 0 55%, var(--line) 55%); }
+.col.done { --c: var(--done); } .col.dev { --c: var(--dev); } .col.next { --c: var(--next); } .col.plan { --c: var(--plan); }
+.col-head .phase { font: 700 12px/1 var(--mono); letter-spacing: 0.12em; text-transform: uppercase; color: var(--c); }
+.col-head h2 { font-size: 24px; font-weight: 800; letter-spacing: -0.01em; }
+.col-head .sub { font-size: 14px; color: var(--muted); }
+
+.card { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; overflow: hidden; display: grid; min-width: 0; }
+.card .shot { position: relative; aspect-ratio: 16 / 9; background: var(--panel-2); max-width: 100%; }
+.card .shot img { width: 100%; height: 100%; object-fit: cover; }
+.card .badge { position: absolute; left: 10px; top: 10px; font: 700 11px/1 var(--mono); letter-spacing: 0.08em; text-transform: uppercase; color: #06141d; background: var(--c); padding: 6px 8px; border-radius: 5px; }
+.card .txt { padding: 12px 14px 14px; display: grid; gap: 4px; }
+.card h3 { font-size: 16px; font-weight: 700; }
+.card p { font-size: 14.5px; color: var(--muted); }
+.card.small .txt { padding-top: 12px; }
+.card.small .badge { position: static; justify-self: start; margin-bottom: 4px; }
+.card ul { margin: 2px 0 0; padding-left: 18px; font-size: 14.5px; color: var(--muted); display: grid; gap: 3px; }
+.card .check { color: var(--done); font-weight: 700; }
+
+@media (max-width: 1080px) { .track { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 36px; } .col:nth-child(2) .col-head::before { right: 0; } }
+@media (max-width: 620px) { .track { grid-template-columns: 1fr; } .col-head::before { right: 0; } }
+
+/* Section shell */
+section.band { padding-block: 56px; display: grid; gap: 20px; }
+.kicker { font: 700 12px/1 var(--mono); letter-spacing: 0.14em; text-transform: uppercase; color: var(--mint); }
+section.band h2.big { font-size: clamp(26px, 4vw, 38px); font-weight: 800; letter-spacing: -0.02em; }
+section.band .intro { max-width: 70ch; color: var(--muted); font-size: 17px; }
+
+/* Ladder strip */
+.ladder { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: 10px; counter-reset: none; }
+.rung { background: var(--panel); border: 1px solid var(--line); border-radius: 12px; padding: 14px 12px; display: grid; gap: 8px; align-content: start; position: relative; min-width: 0; }
+.rung .num { width: 34px; height: 34px; border-radius: 50%; display: grid; place-items: center; font: 800 15px/1 var(--display); border: 2px solid var(--line); color: var(--muted); }
+.rung h3 { font-size: 14.5px; line-height: 1.25; }
+.rung p { font-size: 13px; color: var(--muted); line-height: 1.4; }
+.rung.start { border-color: var(--mint); background: linear-gradient(180deg, rgba(142,240,208,0.12), var(--panel) 60%); }
+.rung.start .num { border-color: var(--mint); color: var(--mint); box-shadow: 0 0 14px rgba(142,240,208,0.5); }
+.rung .here { font: 700 10.5px/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: var(--mint); }
+@media (max-width: 1080px) { .ladder { grid-template-columns: repeat(4, minmax(0, 1fr)); } }
+@media (max-width: 560px) { .ladder { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+.tip { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: center; background: var(--panel-2); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.tip .tag { font: 700 11px/1 var(--mono); letter-spacing: 0.1em; text-transform: uppercase; color: #06141d; background: var(--mint); padding: 7px 9px; border-radius: 5px; }
+.tip p { color: var(--muted); font-size: 15px; }
+.tip b { color: var(--fg); }
+@media (max-width: 520px) { .tip { grid-template-columns: 1fr; } .tip .tag { justify-self: start; } }
+
+/* CTA */
+.cta { background: linear-gradient(120deg, #0f2c35, #102033 60%, #18213d); border-block: 1px solid var(--line); }
+.cta .inner { padding-block: 44px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 28px; align-items: center; }
+.cta h2 { font-size: clamp(24px, 3.6vw, 32px); font-weight: 800; }
+.cta .ways { display: grid; gap: 12px; }
+.way { display: grid; grid-template-columns: auto minmax(0, 1fr); gap: 14px; align-items: center; background: rgba(8,19,29,0.55); border: 1px solid var(--line); border-radius: 12px; padding: 14px 16px; }
+.key { font: 700 18px/1 var(--mono); color: var(--fg); border: 1px solid #3b5d78; border-bottom-width: 4px; border-radius: 8px; padding: 9px 12px; background: var(--panel-2); min-width: 52px; text-align: center; }
+.way p { color: var(--muted); font-size: 15px; }
+.way b { color: var(--fg); }
+a { color: var(--cyan); }
+a:focus-visible { outline: 2px solid var(--cyan); outline-offset: 2px; border-radius: 3px; }
+@media (max-width: 760px) { .cta .inner { grid-template-columns: 1fr; } }
+footer { padding-block: 28px 48px; color: var(--muted); font-size: 14px; }
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="topbar gutter"><div class="inner"><a href="./">&larr; VitalCore Hospital</a></div></div>
+  <img class="art" src="assets/roadmap/night.jpg" alt="A VitalCore hospital seen from above, every room labelled, with the town and car park around it">
+  <div class="inner gutter">
+    <div class="logo" aria-label="VitalCore Hospital">
+      <span class="word">VitalCore</span>
+      <span class="sub">HOSPITAL</span>
+    </div>
+    <div class="ribbon"><span class="title"><span>Roadmap</span></span><span class="when">Alpha · Build 0.9.205 · 31 Oct 2026</span></div>
+    <p class="lede">Grow a small urgent care into a world-renowned medical center. Here is what is in the game now, what we are building, and where it goes next.</p>
+  </div>
+</header>
+
+<main>
+  <div class="gutter track-wrap">
+    <div class="inner track">
+
+      <div class="col done">
+        <div class="col-head"><span class="node">✓</span><span class="phase">Out now</span><h2>In the alpha</h2><p class="sub">Playable on Steam Playtest today</p></div>
+        <article class="card"><div class="shot"><img src="assets/roadmap/carpark.jpg" alt="Hospital campus with its car park" loading="lazy"><span class="badge">0.9.205</span></div><div class="txt"><h3>Unlimited money mode</h3><p>New difficulty: same wages and patients, but cash never runs out. Try every stage without saving up.</p></div></article>
+        <article class="card"><div class="shot"><img src="assets/roadmap/ui-staffcard.jpg" alt="A staff member's card" loading="lazy"><span class="badge">0.9.204</span></div><div class="txt"><h3>A new, realistic cast</h3><p>Every doctor, nurse and patient rebuilt with lifelike faces and expressions.</p></div></article>
+        <article class="card"><div class="shot"><img src="assets/roadmap/ui-schedule.jpg" alt="The weekly staff schedule" loading="lazy"><span class="badge">0.9.202</span></div><div class="txt"><h3>Run the hospital</h3><p>Hire by advert and wage, plan weekly shifts, pay the payroll, keep the books.</p></div></article>
+        <article class="card small"><div class="txt"><span class="badge">0.9.204</span><h3>Morgue, autopsies and key bindings</h3><p>An autopsy room for unexplained deaths, and every key can be rebound in Settings.</p></div></article>
+      </div>
+
+      <div class="col dev">
+        <div class="col-head"><span class="node">2</span><span class="phase">In development</span><h2>Being built now</h2><p class="sub">Coming in the next updates</p></div>
+        <article class="card"><div class="shot"><img src="assets/roadmap/mri.jpg" alt="An MRI scanner room" loading="lazy"><span class="badge">Next update</span></div><div class="txt"><h3>Hire a radiologist</h3><p>A doctor who reads every X-ray, CT, MRI and ultrasound. Opens at Small Clinic.</p></div></article>
+        <article class="card"><div class="shot"><img src="assets/roadmap/triage.jpg" alt="The triage room" loading="lazy"><span class="badge">In progress</span></div><div class="txt"><h3>Nobody gets stuck</h3><p>Every patient who walks in leaves: home, to another hospital, or to the morgue.</p></div></article>
+        <article class="card"><div class="shot"><img src="assets/roadmap/city.jpg" alt="The street outside the hospital" loading="lazy"><span class="badge">In progress</span></div><div class="txt"><h3>Smoother frame rate</h3><p>Aiming for 120 frames a second on strong PCs. First step shipped in 0.9.205.</p></div></article>
+        <article class="card"><div class="shot"><img src="assets/roadmap/reception.jpg" alt="The reception desk" loading="lazy"><span class="badge">In progress</span></div><div class="txt"><h3>A tutorial that teaches</h3><p>Your first ten minutes show you how to play, no Discord needed.</p></div></article>
+      </div>
+
+      <div class="col next">
+        <div class="col-head"><span class="node">3</span><span class="phase">Up next</span><h2>Beta, then the demo</h2><p class="sub">Demo target: December 2026</p></div>
+        <article class="card small"><div class="txt"><span class="badge">Beta checklist</span><h3>The beta starts when one build has all five</h3>
+          <ul>
+            <li>Two testers play 30 minutes with no stuck patients</li>
+            <li>Every patient who comes in leaves</li>
+            <li>Every care desk button works and says what it did</li>
+            <li>A busy day saves and loads with nothing lost</li>
+            <li>The first ten minutes teach the game</li>
+          </ul></div></article>
+        <article class="card"><div class="shot"><img src="assets/roadmap/examroom.jpg" alt="Exam rooms with staff at work" loading="lazy"><span class="badge">Dec 2026</span></div><div class="txt"><h3>The demo</h3><p>One hospital, 20 to 30 polished minutes: build a clinic, admit patients, watch your staff work.</p></div></article>
+        <article class="card"><div class="shot"><img src="assets/roadmap/treatment.jpg" alt="A treatment room" loading="lazy"><span class="badge">Beta</span></div><div class="txt"><h3>Staff you can trust</h3><p>Doctors who choose well on their own, staff who stay where you post them, urgent patients first.</p></div></article>
+      </div>
+
+      <div class="col plan">
+        <div class="col-head"><span class="node">4</span><span class="phase">Planned</span><h2>Early Access</h2><p class="sub">After the demo</p></div>
+        <article class="card"><div class="shot"><img src="assets/roadmap/or.jpg" alt="An operating room" loading="lazy"><span class="badge">Planned</span></div><div class="txt"><h3>Medical clothing</h3><p>Scrubs, white coats and gowns for the whole cast.</p></div></article>
+        <article class="card"><div class="shot"><img src="assets/roadmap/ward.jpg" alt="A hospital ward" loading="lazy"><span class="badge">Planned</span></div><div class="txt"><h3>Babies and children</h3><p>Infants brought in by their parents, and patients of every age.</p></div></article>
+        <article class="card"><div class="shot"><img src="assets/roadmap/lab.jpg" alt="The laboratory" loading="lazy"><span class="badge">Planned</span></div><div class="txt"><h3>Around forty illnesses</h3><p>Each with its own tests and treatment, and a medical library to match.</p></div></article>
+        <article class="card"><div class="shot"><img src="assets/roadmap/ui-hiring.jpg" alt="The staff recruitment screen" loading="lazy"><span class="badge">Planned</span></div><div class="txt"><h3>Deeper staff</h3><p>Training paths, burnout, and staff who grow with your hospital.</p></div></article>
+        <article class="card small"><div class="txt"><span class="badge">Planned</span><h3>Also on the list</h3><p>Insurance denials to appeal, uninsured walk-ins, and a "sickest first" switch for each department.</p></div></article>
+      </div>
+
+    </div>
+  </div>
+
+  <section class="band gutter" aria-labelledby="ladder">
+    <div class="inner" style="display:grid;gap:20px">
+      <div class="kicker">Progression</div>
+      <h2 class="big" id="ladder">Climb the Ladder: eight stages</h2>
+      <p class="intro">Every hospital starts as an urgent care. Meet a stage's goals, ask for an inspection, and the next stage opens new rooms and new staff.</p>
+      <div class="ladder">
+        <div class="rung start"><span class="num">1</span><h3>Urgent Care</h3><p>Reception, triage, exam rooms, blood tests</p><span class="here">You start here</span></div>
+        <div class="rung"><span class="num">2</span><h3>Small Clinic</h3><p>X-ray, ultrasound, pharmacy, cafeteria</p></div>
+        <div class="rung"><span class="num">3</span><h3>Community Hospital</h3><p>Emergency department, wards, 12 specialties</p></div>
+        <div class="rung"><span class="num">4</span><h3>Regional Medical Center</h3><p>Surgery, ICU, CT, cardiology</p></div>
+        <div class="rung"><span class="num">5</span><h3>Level II Trauma</h3><p>MRI, isolation, trauma care</p></div>
+        <div class="rung"><span class="num">6</span><h3>Level I Trauma Center</h3><p>Autopsy and on-call rooms</p></div>
+        <div class="rung"><span class="num">7</span><h3>Teaching Hospital</h3><p>Three specialty departments ready</p></div>
+        <div class="rung"><span class="num">8</span><h3>World-Renowned</h3><p>Every specialty, 4.5 stars, 100 staff</p></div>
+      </div>
+      <div class="tip"><span class="tag">Tester tip</span><p>Want to see every stage fast? Start a new game on <b>Unlimited money</b>. You still meet each stage's goals to move up.</p></div>
+    </div>
+  </section>
+
+  <section class="cta">
+    <div class="inner gutter">
+      <div style="display:grid;gap:10px">
+        <div class="kicker">Shape the game</div>
+        <h2>Every report changes this roadmap</h2>
+        <p style="color:var(--muted);max-width:52ch">This week alone, five tester reports were fixed in a single update. The more you tell us, the faster it gets better.</p>
+      </div>
+      <div class="ways">
+        <div class="way"><span class="key">F8</span><p><b>Press F8 in game.</b> Write one sentence. The report sends itself with your save and log.</p></div>
+        <div class="way"><span class="key">#</span><p><b>Join the Discord.</b> Ideas and questions welcome: <a href="https://discord.gg/wJsszncrF6">discord.gg/wJsszncrF6</a></p></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="gutter"><div class="inner">Dates are targets, not promises. Screenshots are from the current alpha. This roadmap changes as the game does.</div></footer>
+</body>
+</html>
